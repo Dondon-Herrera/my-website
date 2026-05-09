@@ -4,6 +4,7 @@ import { SparklesIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 /** Mockup sky blue; satellite sizes scale off Web/Apps `em`. */
 const MOCK_SKY = "#B6DFFF";
@@ -15,6 +16,8 @@ const MODERN_FONT_SIZE = "calc(1em / 4)";
 const DEVELOPER_FONT_SIZE = "calc(1em / 4.2)";
 
 export const HeroContent = () => {
+  const [aboutPortraitSrc, setAboutPortraitSrc] = useState("/formal2.jpg");
+
   return (
     <>
       {/* —— Portrait hero: headline behind figure; SVG removes light (white) photo bg —— */}
@@ -306,16 +309,40 @@ export const HeroContent = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.45 }}
-            className="mt-12 hidden h-full w-full items-center justify-center sm:flex md:mt-0 md:pl-6"
+            className="mt-12 flex h-full w-full items-center justify-center md:mt-0 md:pl-2"
           >
-            <Image
-              src="/hero-bg.svg"
-              alt="Work icons"
-              height={320}
-              width={320}
-              draggable={false}
-              className="h-auto w-[260px] select-none sm:w-[340px] md:w-[420px] lg:w-[520px] xl:w-[620px]"
-            />
+            <div className="relative w-[260px] shrink-0 -translate-x-4 sm:-translate-x-5 md:-translate-x-8 lg:-translate-x-10 sm:w-[340px] md:w-[420px] lg:w-[520px] xl:w-[620px]">
+              <Image
+                src="/hero-bg.svg"
+                alt="Work icons"
+                height={320}
+                width={320}
+                draggable={false}
+                className="relative z-0 h-auto w-full select-none"
+              />
+              <div className="pointer-events-none absolute left-1/2 top-1/2 z-[15] aspect-square w-[min(36%,14rem)] min-w-[120px] max-w-[15.5rem] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-[3px] border-white/35 bg-[#030014] shadow-[0_16px_48px_rgba(0,0,0,0.55)] sm:min-w-[128px] md:min-w-[136px] md:w-[min(34%,15.5rem)]">
+                <Image
+                  src={aboutPortraitSrc}
+                  alt="Dondon Herrera"
+                  fill
+                  sizes="(max-width: 640px) 40vw, (max-width: 1024px) 35vw, 15.5rem"
+                  draggable={false}
+                  unoptimized
+                  onError={() => {
+                    setAboutPortraitSrc((prev) =>
+                      prev === "/hero_body_cutout.svg"
+                        ? prev
+                        : "/hero_body_cutout.svg",
+                    );
+                  }}
+                  className={
+                    aboutPortraitSrc.endsWith(".svg")
+                      ? "object-cover object-[center_16%] scale-[1.12]"
+                      : "object-cover object-center"
+                  }
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

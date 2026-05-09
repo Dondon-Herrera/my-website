@@ -291,6 +291,119 @@ export const PROJECTS = [
   },
 ] as const;
 
+/** Full-width projects page (/projects): cards, tech tags, live + repo actions */
+export type ProjectShowcaseEntry = {
+  title: string;
+  description: string;
+  image: string;
+  features: string[];
+  tech: string[];
+  liveUrl: string;
+  repoUrl: string | null;
+};
+
+export const PROJECTS_SHOWCASE: ProjectShowcaseEntry[] = [
+  {
+    title: "Trendinghashtag.in",
+    description:
+      "An AI-powered hashtag generator for creators and brands—country-specific trending tags, safer posting with banned-tag filtering, and bonus tools like couple/wedding hashtag helpers and media utilities in one place.",
+    image: "/projects/trendinghashtag.png",
+    features: [
+      "AI-assisted hashtag discovery",
+      "Geo-aware trending data",
+      "Banned-tag safety checks",
+      "Responsive, fast UX",
+    ],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "AI APIs", "Vercel"],
+    liveUrl: "https://trendinghashtag.in/",
+    repoUrl: null,
+  },
+  {
+    title: "ISP Website (Hilltell)",
+    description:
+      "ISP marketing site for HillTell—Managed WiFi, MPLS, P2P, and IP services—with responsive layouts, lead capture, and a chatbot for customer questions.",
+    image: "/projects/hilltell.png",
+    features: [
+      "Service-focused landing flows",
+      "Integrated contact & support paths",
+      "Interactive chatbot",
+      "Mobile-first layout",
+    ],
+    tech: ["PHP", "MySQL", "JavaScript", "XAMPP", "Responsive CSS"],
+    liveUrl: "https://hilltell.in/index.php",
+    repoUrl: null,
+  },
+  {
+    title: "Enterprise Admin Dashboard",
+    description:
+      "Full-stack operations hub with intern/employee and company management, announcements, and a secure API vault—JWT, RBAC, encryption, and a polished admin UI.",
+    image: "/projects/crm.png",
+    features: [
+      "Role-based access control",
+      "API vault & workflow tools",
+      "3-tier scalable architecture",
+      "Production-hardened auth",
+    ],
+    tech: ["Next.js", "Node.js", "Firebase", "TypeScript", "REST APIs"],
+    liveUrl: "https://cyberclipper-admin-panel-ochre.vercel.app/",
+    repoUrl: null,
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "Personal portfolio built with Next.js, Tailwind, and Three.js—showcasing full-stack work from UI polish to cloud-ready deployment patterns.",
+    image: "/projects/project-3.png",
+    features: [
+      "Interactive 3D hero accents",
+      "Optimized content sections",
+      "Clean component architecture",
+      "Deploy-ready static assets",
+    ],
+    tech: ["Next.js", "Tailwind CSS", "Three.js", "TypeScript", "Vercel"],
+    liveUrl: "https://github.com/praduman1212/My-Portfolio",
+    repoUrl: "https://github.com/praduman1212/My-Portfolio",
+  },
+  {
+    title: "File Sharing Web Application",
+    description:
+      "MERN app for secure uploads, sharing, and file management—clear UI, validated flows, and sensible defaults for production-style file handling.",
+    image: "/projects/file sharing app.png",
+    features: [
+      "Secure upload & sharing flows",
+      "RESTful API design",
+      "MongoDB-backed storage",
+      "MERN stack delivery",
+    ],
+    tech: ["React", "Node.js", "Express", "MongoDB", "JavaScript"],
+    liveUrl: "https://github.com/praduman1212/File-Sharing-Web-Application-",
+    repoUrl: "https://github.com/praduman1212/File-Sharing-Web-Application-",
+  },
+];
+
+/** Shared with About me + Projects page footers */
+export const PORTFOLIO_PAGE_TICKER_ITEMS = [
+  "SOLUTIONS",
+  "SECURITY BEST PRACTICES",
+  "CMS INTEGRATION",
+  "MVP DEVELOPMENT",
+  "PERFORMANCE OPTIMIZATION",
+  "SCALABLE ARCHITECTURE",
+  "AI INTEGRATION",
+  "SEO OPTIMIZATION",
+] as const;
+
+export const PORTFOLIO_PAGE_METRIC_BADGES: { label: string; rotate: string }[] =
+  [
+    { label: "95+ Lighthouse Score", rotate: "-5deg" },
+    { label: "98% Performance Score", rotate: "7deg" },
+    { label: "1.8s Load Time", rotate: "-3deg" },
+    { label: "<120ms API Response", rotate: "5deg" },
+    { label: "Optimized Core Web Vitals", rotate: "-4deg" },
+    { label: "SEO Score 100", rotate: "6deg" },
+    { label: "Mobile-Friendly", rotate: "-2deg" },
+    { label: "99.9% Uptime", rotate: "4deg" },
+  ];
+
 export const FOOTER_DATA = [
   {
     title: "About Me",
@@ -345,7 +458,7 @@ export const NAV_LINKS = [
   { title: "Skills", link: "#skills" },
   { title: "Education", link: "#education" },
   { title: "Experience", link: "#experience" },
-  { title: "Projects", link: "#my-projects" },
+  { title: "Projects", link: "/projects" },
   { title: "Available", link: "#available" },
 ] as const;
 

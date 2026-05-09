@@ -197,13 +197,13 @@ export const HeroContent = () => {
                   </p>
                   <div className="relative z-10 mt-2.5 flex w-full min-w-0 max-w-xl flex-col items-stretch justify-center gap-3 px-2 sm:mt-3 sm:max-w-2xl sm:flex-row sm:gap-5">
                     <Link
-                      href="#about-me"
+                      href="/about-me"
                       className="pointer-events-auto rounded-full border border-white/25 bg-white/[0.12] px-5 py-3 text-center text-sm font-medium text-white shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-md transition hover:bg-white/20 sm:px-8 sm:py-4 sm:text-lg"
                     >
                       About Me
                     </Link>
                     <Link
-                      href="#education"
+                      href="/projects"
                       className="pointer-events-auto rounded-full border border-cyan-400/50 bg-cyan-500/20 px-5 py-3 text-center text-sm font-medium leading-snug text-cyan-50 shadow-[0_8px_32px_rgba(0,0,0,0.45)] backdrop-blur-md transition hover:bg-cyan-500/30 sm:px-8 sm:py-4 sm:text-lg"
                     >
                       My Last Projects
@@ -285,7 +285,7 @@ export const HeroContent = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.35, delay: 0.12 }}
-              href="/Praduman_Sharma's_Resume_9520949165.pdf"
+              href="/DONDON_REYES_HERRERA.pdf"
               target="_blank"
               rel="noreferrer noopener"
               className="button-primary max-w-[200px] cursor-pointer rounded-lg py-2.5 text-center text-[15px] text-white sm:max-w-[240px] sm:py-3 sm:text-base"

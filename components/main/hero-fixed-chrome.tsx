@@ -133,7 +133,7 @@ const dockItems = [
   },
   {
     id: "my-projects" as const,
-    href: "/#my-projects",
+    href: "/projects",
     label: "Projects",
     Icon: PencilSquareIcon,
     activeFor: ["my-projects", "available"] as const,
@@ -143,7 +143,7 @@ const dockItems = [
 export function HeroFixedChrome() {
   const pathname = usePathname();
   const [activeId, setActiveId] = useState<string>("welcome");
-  const [isAboutMeCtaVisible, setIsAboutMeCtaVisible] = useState(false);
+  const [isPortfolioCtaVisible, setIsPortfolioCtaVisible] = useState(false);
   const [isHomeHeroPortraitInView, setIsHomeHeroPortraitInView] =
     useState(true);
   const [isSocialPinnedOpen, setIsSocialPinnedOpen] = useState(false);
@@ -152,6 +152,10 @@ export function HeroFixedChrome() {
     const pickActive = () => {
       if (pathname === "/about-me") {
         setActiveId("about-me");
+        return;
+      }
+      if (pathname === "/projects") {
+        setActiveId("my-projects");
         return;
       }
       if (pathname === "/contact") {
@@ -224,8 +228,8 @@ export function HeroFixedChrome() {
   }, [pathname, activeId]);
 
   useEffect(() => {
-    if (pathname !== "/about-me") {
-      setIsAboutMeCtaVisible(false);
+    if (pathname !== "/about-me" && pathname !== "/projects") {
+      setIsPortfolioCtaVisible(false);
       return;
     }
 
@@ -236,7 +240,7 @@ export function HeroFixedChrome() {
 
     const attach = () => {
       if (cancelled) return;
-      const el = document.getElementById("about-me-cta");
+      const el = document.getElementById("portfolio-page-cta");
       if (!el) {
         if (attempts++ < 90) rafId = requestAnimationFrame(attach);
         return;
@@ -244,7 +248,7 @@ export function HeroFixedChrome() {
       io = new IntersectionObserver(
         entries => {
           const visible = entries.some(e => e.isIntersecting);
-          setIsAboutMeCtaVisible(visible);
+          setIsPortfolioCtaVisible(visible);
         },
         { root: null, threshold: 0.08, rootMargin: "0px 0px -8% 0px" }
       );
@@ -314,8 +318,8 @@ export function HeroFixedChrome() {
 
   const showSocial =
     isSocialPinnedOpen ||
-    (pathname === "/about-me"
-      ? !isAboutMeCtaVisible
+    (pathname === "/about-me" || pathname === "/projects"
+      ? !isPortfolioCtaVisible
       : pathname === "/" && activeId === "welcome");
   const showSocialToggle = !showSocial;
 

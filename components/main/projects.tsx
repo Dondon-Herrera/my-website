@@ -8,6 +8,7 @@ import { Canvas } from "@react-three/fiber";
 import { MeshDistortMaterial, Sphere } from "@react-three/drei";
 import { useTypewriter } from "react-simple-typewriter";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 export const Projects = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -150,14 +151,12 @@ export const Projects = () => {
 
       {/* More Projects Button */}
       <div className="mt-10">
-        <a
-          href="https://github.com/praduman1212"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-6 py-3 rounded-2xl bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold shadow-lg hover:scale-105 transition-transform duration-300"
+        <Link
+          href="/projects"
+          className="inline-block px-6 py-3 rounded-2xl bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold shadow-lg hover:scale-105 transition-transform duration-300"
         >
           More Projects →
-        </a>
+        </Link>
       </div>
     </section>
   );

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMax meet">
+  <!-- Base matches site body (#030014) so white in the photo multiplies away -->
+  <rect width="100%" height="100%" fill="#030014"/>
+  <image
+    href="hero-portrait.png"
+    xlink:href="hero-portrait.png"
+    width="900"
+    height="1200"
+    preserveAspectRatio="xMidYMax meet"
+    style="mix-blend-mode: multiply;"
+  />
+</svg>

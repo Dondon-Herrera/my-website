@@ -2,13 +2,31 @@
 
 import { useEffect, useState } from "react";
 
+import { CRITICAL_IMAGE_PATHS } from "@/lib/critical-images";
+
 type Phase = "loading" | "exiting" | "hidden";
 
 const SKY = "#B6DFFF";
 
+function preloadImage(src: string): Promise<void> {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve();
+    img.onerror = () => resolve();
+    img.src = src;
+  });
+}
+
+function waitForWindowLoad(): Promise<void> {
+  if (document.readyState === "complete") return Promise.resolve();
+  return new Promise((resolve) => {
+    window.addEventListener("load", () => resolve(), { once: true });
+  });
+}
+
 /**
- * Full-screen loader until the window `load` event (document + subresources).
- * Fades out after a minimum time so fast connections don’t flash the overlay.
+ * Waits for hero + profile + project thumbnails, then window `load`, then fades out
+ * so the rest of the page can appear with a smooth shell animation (`html.app-ready`).
  */
 export function InitialLoadOverlay() {
   const [phase, setPhase] = useState<Phase>("loading");
@@ -19,15 +37,17 @@ export function InitialLoadOverlay() {
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const MIN_MS = reduced ? 0 : 850;
-    const EXIT_MS = reduced ? 0 : 420;
+    const MIN_MS = reduced ? 0 : 780;
+    const EXIT_MS = reduced ? 0 : 520;
+    const MAX_WAIT_MS = 14_000;
     const started = Date.now();
 
-    const finish = () => {
+    const finishSequence = () => {
       if (cancelled) return;
       const wait = Math.max(0, MIN_MS - (Date.now() - started));
       window.setTimeout(() => {
         if (cancelled) return;
+        document.documentElement.classList.add("app-ready");
         setPhase("exiting");
         window.setTimeout(() => {
           if (!cancelled) setPhase("hidden");
@@ -35,15 +55,24 @@ export function InitialLoadOverlay() {
       }, wait);
     };
 
-    if (document.readyState === "complete") {
-      finish();
-    } else {
-      window.addEventListener("load", finish, { once: true });
-    }
+    (async () => {
+      const criticalDone = Promise.all(
+        CRITICAL_IMAGE_PATHS.map((href) => preloadImage(href)),
+      );
+      const windowDone = waitForWindowLoad();
+
+      try {
+        await Promise.race([
+          Promise.all([criticalDone, windowDone]),
+          new Promise<void>((r) => window.setTimeout(r, MAX_WAIT_MS)),
+        ]);
+      } finally {
+        if (!cancelled) finishSequence();
+      }
+    })();
 
     return () => {
       cancelled = true;
-      window.removeEventListener("load", finish);
     };
   }, []);
 
@@ -59,7 +88,7 @@ export function InitialLoadOverlay() {
 
   return (
     <div
-      className={`fixed inset-0 z-[20000] flex flex-col items-center justify-center bg-[#030014] px-6 transition-[opacity,visibility] duration-500 ease-out motion-reduce:transition-none ${
+      className={`fixed inset-0 z-[20000] flex flex-col items-center justify-center bg-[#030014] px-6 transition-[opacity,visibility] duration-[520ms] ease-out motion-reduce:transition-none ${
         phase === "exiting"
           ? "pointer-events-none opacity-0"
           : "opacity-100"
@@ -92,7 +121,7 @@ export function InitialLoadOverlay() {
             Loading portfolio
           </p>
           <p className="mt-2 max-w-[16rem] text-[12px] leading-relaxed text-gray-500 md:text-[13px]">
-            Preparing visuals and content…
+            Loading hero, profile, and projects…
           </p>
         </div>
       </div>

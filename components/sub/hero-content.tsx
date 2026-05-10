@@ -325,6 +325,7 @@ export const HeroContent = () => {
                   src={aboutPortraitSrc}
                   alt="Dondon Herrera"
                   fill
+                  priority
                   sizes="(max-width: 640px) 40vw, (max-width: 1024px) 35vw, 15.5rem"
                   draggable={false}
                   unoptimized

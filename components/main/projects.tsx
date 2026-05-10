@@ -218,6 +218,7 @@ export const Projects = () => {
                   title={project.title}
                   description={project.description}
                   link={project.liveUrl ?? project.repoUrl ?? "/projects"}
+                  priority={idx < 8}
                 />
               </motion.div>
             );

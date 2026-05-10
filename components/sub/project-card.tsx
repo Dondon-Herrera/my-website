@@ -7,11 +7,19 @@ type ProjectCardProps = {
   title: string;
   description: string;
   link: string;
+  /** Eager-load for above-the-fold carousel slides (home). */
+  priority?: boolean;
 };
 
 const isExternalHref = (href: string) => /^https?:\/\//i.test(href);
 
-export const ProjectCard = ({ src, title, description, link }: ProjectCardProps) => {
+export const ProjectCard = ({
+  src,
+  title,
+  description,
+  link,
+  priority = false,
+}: ProjectCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const external = isExternalHref(link);
 
@@ -36,8 +44,10 @@ export const ProjectCard = ({ src, title, description, link }: ProjectCardProps)
             alt={title}
             width={600}
             height={400}
+            sizes="(max-width: 640px) 92vw, (max-width: 1024px) 40vw, 400px"
             className="max-h-[180px] w-full object-cover object-center rounded-lg sm:max-h-[220px] md:max-h-[260px]"
-            loading="lazy"
+            priority={priority}
+            loading={priority ? "eager" : "lazy"}
           />
         </div>
 

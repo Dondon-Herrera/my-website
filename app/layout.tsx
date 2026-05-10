@@ -9,6 +9,7 @@ import { HeroFixedChrome } from "@/components/main/hero-fixed-chrome";
 import { StarsCanvas } from "@/components/main/star-background";
 import { AudioPlayer } from "@/components/main/audio-player";
 import { siteConfig } from "@/config";
+import { CRITICAL_IMAGE_PATHS } from "@/lib/critical-images";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
@@ -28,13 +29,15 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <head>
-        <link
-          rel="preload"
-          href="/hero_body_cutout.svg"
-          as="image"
-          type="image/svg+xml"
-        />
-        <link rel="preload" href="/formal2.jpg" as="image" />
+        {CRITICAL_IMAGE_PATHS.map((href) => (
+          <link
+            key={href}
+            rel="preload"
+            href={href}
+            as="image"
+            type={href.endsWith(".svg") ? "image/svg+xml" : undefined}
+          />
+        ))}
       </head>
       <body
         className={cn(
@@ -49,7 +52,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <StarsCanvas variant="viewport" />
         <CustomCursorWrapper />
         <HeroFixedChrome />
-        <div className="relative z-10">
+        <div className="app-main-shell relative z-10">
           {children}
           <AudioPlayer />
           <Footer />

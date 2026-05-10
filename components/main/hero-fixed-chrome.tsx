@@ -32,7 +32,7 @@ const SECTION_IDS = [
   "skills",
   "education",
   "experience",
-  "my-projects",
+  "project",
   "available",
 ] as const;
 
@@ -132,11 +132,11 @@ const dockItems = [
     activeFor: ["experience"] as const,
   },
   {
-    id: "my-projects" as const,
-    href: "/projects",
+    id: "project" as const,
+    href: "/#project",
     label: "Projects",
     Icon: PencilSquareIcon,
-    activeFor: ["my-projects", "available"] as const,
+    activeFor: ["project", "available"] as const,
   },
 ] as const;
 
@@ -155,7 +155,7 @@ export function HeroFixedChrome() {
         return;
       }
       if (pathname === "/projects") {
-        setActiveId("my-projects");
+        setActiveId("project");
         return;
       }
       if (pathname === "/contact") {

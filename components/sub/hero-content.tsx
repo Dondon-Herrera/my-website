@@ -297,7 +297,7 @@ export const HeroContent = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.35, delay: 0.16 }}
-              href="#my-projects"
+              href="#project"
               className="button-secondary max-w-[200px] cursor-pointer rounded-lg border border-purple-500/50 bg-purple-600 py-2.5 text-center text-[15px] text-white transition-colors hover:bg-purple-700 sm:max-w-[240px] sm:py-3 sm:text-base"
             >
               See Project List
@@ -309,7 +309,7 @@ export const HeroContent = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.45 }}
-            className="mt-12 flex h-full w-full items-center justify-center md:mt-0 md:pl-2"
+            className="mt-12 hidden h-full w-full items-center justify-center md:mt-0 md:flex md:pl-2"
           >
             <div className="relative w-[260px] shrink-0 -translate-x-4 sm:-translate-x-5 md:-translate-x-8 lg:-translate-x-10 sm:w-[340px] md:w-[420px] lg:w-[520px] xl:w-[620px]">
               <Image

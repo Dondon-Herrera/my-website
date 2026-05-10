@@ -14,10 +14,10 @@ export const Encryption = () => {
   return (
     <div className="relative mb-0 flex h-full min-h-[60vh] w-full flex-col items-center justify-center overflow-hidden px-2 pt-0 pb-0 sm:min-h-screen sm:px-0 sm:pb-0 sm:pt-0">
       {/* Title */}
-      <div className="absolute left-1/2 top-16 z-[5] w-auto -translate-x-1/2 sm:top-20 md:top-24">
+      <div className="pointer-events-none absolute left-1/2 top-12 z-[30] w-[min(100%,20rem)] -translate-x-1/2 px-2 sm:top-20 sm:w-auto sm:px-0 md:top-24">
         <motion.div
           variants={slideInFromTop}
-          className="text-[22px] sm:text-[32px] md:text-[40px] font-medium text-center text-gray-200"
+          className="text-[22px] font-medium text-center text-gray-200 drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-[32px] md:text-[40px]"
         >
           Performance{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
@@ -28,7 +28,7 @@ export const Encryption = () => {
       </div>
 
       {/* Lock / portrait + CTA + subtitle — flow layout keeps subtitle tight under the animation */}
-      <div className="relative z-[20] flex w-full max-w-[32rem] flex-1 flex-col items-center justify-center px-4 sm:px-8">
+      <div className="relative z-[20] flex w-full max-w-[32rem] flex-1 flex-col items-center px-4 max-sm:justify-start max-sm:pt-[7.5rem] sm:justify-center sm:px-8 sm:pt-0">
         <AnimatePresence mode="wait">
           {isDecrypted ? (
             <motion.div
@@ -70,21 +70,25 @@ export const Encryption = () => {
               transition={{ duration: 0.35 }}
               className="flex flex-col items-center"
             >
-              <div className="group flex cursor-pointer flex-col items-center">
-                <Image
-                  src="/lock-top.png"
-                  alt="Lock top"
-                  width={38}
-                  height={38}
-                  className="translate-y-3 transition-all duration-200 group-hover:translate-y-7 sm:translate-y-5 sm:group-hover:translate-y-11"
-                />
-                <Image
-                  src="/lock-main.png"
-                  alt="Lock main"
-                  width={55}
-                  height={55}
-                  className="z-10"
-                />
+              <div className="group flex cursor-pointer flex-col items-center leading-none">
+                {/* One unit: overlap shackle + body (assets are split sprites) */}
+                <div className="relative flex flex-col items-center">
+                  <Image
+                    src="/lock-top.png"
+                    alt=""
+                    width={38}
+                    height={38}
+                    aria-hidden
+                    className="relative z-[1] mx-auto block h-[38px] w-[38px] -mb-[18px] translate-y-0 object-contain object-bottom transition-transform duration-200 ease-out group-hover:translate-y-3 sm:-mb-[20px] sm:translate-y-0 sm:group-hover:translate-y-6"
+                  />
+                  <Image
+                    src="/lock-main.png"
+                    alt="Locked"
+                    width={55}
+                    height={55}
+                    className="relative z-[2] mx-auto block h-[55px] w-[55px] object-contain object-top"
+                  />
+                </div>
               </div>
               <motion.div
                 onClick={() => setIsDecrypted(true)}

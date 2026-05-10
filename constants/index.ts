@@ -258,45 +258,6 @@ export const CERTIFICATION_SUMMARY_ITEMS: readonly string[] = [
   "M220N: MongoDB for .NET Developers • C#/.NET driver, CRUD, querying and aggregation with ASP.NET • Issued May 2021 • MongoDB University",
 ];
 
-export const PROJECTS = [
- {
-    title: "Trendinghashtag.in",
-    description:
-      "TrendingHashtag.in – An AI-powered hashtag generator that helps creators and businesses boost their social media reach. It provides country-specific trending hashtags, removes banned tags to ensure safe posting, and offers extra tools like couple/wedding hashtag generators and media downloaders, all in one platform.",
-    image: "/projects/trendinghashtag.png",
-    link: "https://trendinghashtag.in/",
-  },
-  {
-    title: "ISP Website (Hilltell)",
-    description:
-      "HillTell.in – An ISP company website that I developed using PHP, XAMPP, and MySQL (phpMyAdmin). It highlights services like Managed WiFi, MPLS, P2P connectivity, and IP One Class, with a responsive design, integrated contact options, and an interactive chatbot for customer queries.",
-    image: "/projects/hilltell.png",
-    link: "https://hilltell.in/index.php",
-  },
-    {
-    title: "Enterprise Admin Dashboard",
-      description:
-      "The Enterprise Admin Dashboard with API Vault & Workflow Management is a full-stack business management platform built with Next.js, Node.js, and Firebase. It offers intern and employee management, company management, announcements, and a secure API vault within a modern responsive UI. Designed with a 3-tier architecture, it ensures scalability, security, and efficiency through JWT authentication, RBAC, and encrypted storage.",
-    image: "/projects/crm.png",
-    link: "https://cyberclipper-admin-panel-ochre.vercel.app/",
-   
-  },
-  {
-    title: "Portfolio Website",
-    description:
-      "A Next.js, Tailwind & Three.js personal portfolio demonstrating my expertise in full-stack development—from frontend and backend to cloud, mobile, and AI.",
-    image: "/projects/project-3.png",
-    link: "https://github.com/praduman1212/My-Portfolio",
-  },
-    {
-    title: "File Sharing Web Application",
-    description:
-      "File Sharing Web Application – A MERN stack project I developed that enables users to securely upload, share, and manage files online. Built with MongoDB, Express.js, React.js, and Node.js, it features a clean UI, fast performance, and secure file handling",
-    image: "/projects/file sharing app.png",
-    link: "https://github.com/praduman1212/File-Sharing-Web-Application-",
-  },
-] as const;
-
 /** Full-width projects page (/projects): cards, tech tags, live + repo actions */
 export type ProjectShowcaseEntry = {
   title: string;
@@ -304,85 +265,170 @@ export type ProjectShowcaseEntry = {
   image: string;
   features: string[];
   tech: string[];
-  liveUrl: string;
+  liveUrl: string | null;
   repoUrl: string | null;
 };
 
 export const PROJECTS_SHOWCASE: ProjectShowcaseEntry[] = [
   {
-    title: "Trendinghashtag.in",
+    title: "E-Commerce Operations & Integration — 6 Australian Consumer Brands",
     description:
-      "An AI-powered hashtag generator for creators and brands—country-specific trending tags, safer posting with banned-tag filtering, and bonus tools like couple/wedding hashtag helpers and media utilities in one place.",
-    image: "/projects/trendinghashtag.png",
-    features: [
-      "AI-assisted hashtag discovery",
-      "Geo-aware trending data",
-      "Banned-tag safety checks",
-      "Responsive, fast UX",
-    ],
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "AI APIs", "Vercel"],
-    liveUrl: "https://trendinghashtag.in/",
-    repoUrl: null,
-  },
-  {
-    title: "ISP Website (Hilltell)",
-    description:
-      "ISP marketing site for HillTell—Managed WiFi, MPLS, P2P, and IP services—with responsive layouts, lead capture, and a chatbot for customer questions.",
-    image: "/projects/hilltell.png",
-    features: [
-      "Service-focused landing flows",
-      "Integrated contact & support paths",
-      "Interactive chatbot",
-      "Mobile-first layout",
-    ],
-    tech: ["PHP", "MySQL", "JavaScript", "XAMPP", "Responsive CSS"],
-    liveUrl: "https://hilltell.in/index.php",
-    repoUrl: null,
-  },
-  {
-    title: "Enterprise Admin Dashboard",
-    description:
-      "Full-stack operations hub with intern/employee and company management, announcements, and a secure API vault—JWT, RBAC, encryption, and a polished admin UI.",
+      "Multi-brand e-commerce backbone for Toppik, Waterpik, Curash, Flawless, Therabreath, and Hero Cosmetics on BigCommerce B2C and B2B. A custom Windows Service layer automated order fulfillment end-to-end via Cargoline and Pronto (FTP-backed APIs)—cutting manual processing time by about 60% while keeping high-volume retail operations predictable.",
     image: "/projects/crm.png",
     features: [
-      "Role-based access control",
-      "API vault & workflow tools",
-      "3-tier scalable architecture",
-      "Production-hardened auth",
+      "Six consumer brands on unified BigCommerce B2C & B2B",
+      "Windows Services automation for fulfillment pipelines",
+      "Deep Cargoline + Pronto integration over FTP",
+      "~60% reduction in manual order handling",
     ],
-    tech: ["Next.js", "Node.js", "Firebase", "TypeScript", "REST APIs"],
-    liveUrl: "https://cyberclipper-admin-panel-ochre.vercel.app/",
+    tech: [
+      "BigCommerce",
+      "Windows Services",
+      "Cargoline",
+      "Pronto",
+      "B2B",
+      "FTP integrations",
+    ],
+    liveUrl: null,
     repoUrl: null,
   },
   {
-    title: "Portfolio Website",
+    title: "Jurlique — Real-Time E-Commerce Event Integration",
     description:
-      "Personal portfolio built with Next.js, Tailwind, and Three.js—showcasing full-stack work from UI polish to cloud-ready deployment patterns.",
-    image: "/projects/project-3.png",
+      "Real-time monitoring for Jurlique on BigCommerce: webhooks and ngrok gave full-spectrum listening across storefront events. Incident detection moved from hours to minutes by surfacing problems as they happened—not after customers already felt them.",
+    image: "/projects/trendinghashtag.png",
     features: [
-      "Interactive 3D hero accents",
-      "Optimized content sections",
-      "Clean component architecture",
-      "Deploy-ready static assets",
+      "Webhook-driven event coverage across the storefront",
+      "Secure tunneling with ngrok for active listening",
+      "Near-complete visibility into commerce events",
+      "Faster mean time to detect operational issues",
     ],
-    tech: ["Next.js", "Tailwind CSS", "Three.js", "TypeScript", "Vercel"],
-    liveUrl: "https://github.com/praduman1212/My-Portfolio",
-    repoUrl: "https://github.com/praduman1212/My-Portfolio",
+    tech: ["BigCommerce", "B2B", "Webhooks", "ngrok", "Event-driven design"],
+    liveUrl: null,
+    repoUrl: null,
   },
   {
-    title: "File Sharing Web Application",
+    title: "Payperclip — Content Monetization Platform",
     description:
-      "MERN app for secure uploads, sharing, and file management—clear UI, validated flows, and sensible defaults for production-style file handling.",
+      "Dual-sided platform for Creators and Fans with multi-tier content pricing and three payment rails—Paysociety e-wallet, bank transfer, and card. The backend is a full microservices architecture with Kafka for event-driven workflows, built to scale billing, access control, and payouts cleanly.",
     image: "/projects/file sharing app.png",
     features: [
-      "Secure upload & sharing flows",
-      "RESTful API design",
-      "MongoDB-backed storage",
-      "MERN stack delivery",
+      "Creator vs Fan roles with tiered monetization",
+      "Three integrated payment methods (wallet, bank, card)",
+      "Microservices with Kafka event streaming",
+      "Production-minded money movement and access rules",
     ],
-    tech: ["React", "Node.js", "Express", "MongoDB", "JavaScript"],
-    liveUrl: "https://github.com/praduman1212/File-Sharing-Web-Application-",
-    repoUrl: "https://github.com/praduman1212/File-Sharing-Web-Application-",
+    tech: [
+      "Microservices",
+      "Apache Kafka",
+      "MongoDB",
+      ".NET 10",
+      "C#",
+      "REST APIs",
+    ],
+    liveUrl: null,
+    repoUrl: null,
+  },
+  {
+    title: "Paysociety — E-Wallet System",
+    description:
+      "Distributed fintech wallet supporting TopUp, transfers, and multi-channel payment flows. Kafka powers event streaming across services; Ocelot acts as the API gateway hardening cross-service traffic; Identity Server anchors authentication for a coherent security story.",
+    image: "/projects/project-3.png",
+    features: [
+      "Wallet core: TopUp, transfer, and multi-channel payments",
+      "Kafka-backed asynchronous processing",
+      "Ocelot API gateway for service boundaries",
+      "Identity Server for centralized auth",
+    ],
+    tech: [
+      "MongoDB",
+      "Apache Kafka",
+      ".NET 10",
+      "IdentityServer",
+      "Ocelot",
+      "C#",
+    ],
+    liveUrl: null,
+    repoUrl: null,
+  },
+  {
+    title: "Recruitment Online — Serviced by AXA (Philippines)",
+    description:
+      "End-to-end digital hiring for AXA Philippines—from applicant intake through licensed financial advisor onboarding. A TDD-shaped REST API underpins the pipeline; SSRS reporting and tuned stored procedures give leadership real-time visibility into every stage of recruitment.",
+    image: "/projects/hilltell.png",
+    features: [
+      "Full recruitment lifecycle automation",
+      "TDD-oriented REST API design",
+      "SSRS dashboards on optimized SQL",
+      "Real-time pipeline visibility for stakeholders",
+    ],
+    tech: [
+      "C#",
+      ".NET Core",
+      "SSRS",
+      "Azure DevOps Server",
+      "Microsoft SQL Server",
+    ],
+    liveUrl: null,
+    repoUrl: null,
+  },
+  {
+    title: "RespAi — Fire Department CRM & Lead Generation",
+    description:
+      "SaaS CRM for fire departments: ingests federal grant data, runs automated matching and lead scoring to surface funding opportunities, and delivers results through a secure cloud UI. Shipped on Azure Static Web Apps and Azure Functions with OAuth 2.0, MSAL.js, and Axios interceptors—React and TypeScript on the front end as part of a collaborative delivery team.",
+    image: "/projects/crm.png",
+    features: [
+      "Grant intelligence with matching & scoring",
+      "Azure Static Web Apps + Azure Functions",
+      "OAuth 2.0 / MSAL.js with hardened HTTP layer",
+      "React + TypeScript product experience",
+    ],
+    tech: [
+      "Azure Static Web Apps",
+      "Azure Functions",
+      "TypeScript",
+      "React",
+      "OAuth 2.0",
+      "MSAL.js",
+    ],
+    liveUrl: null,
+    repoUrl: null,
+  },
+  {
+    title: "UCO Tracking System",
+    description:
+      "Internal operations platform for a fintech—tracks UCO collection across many collectors. Hangfire runs background jobs; custom stored procedures and multiple report types give operations real-time insight into collection performance and exceptions.",
+    image: "/projects/file sharing app.png",
+    features: [
+      "Multi-collector UCO activity tracking",
+      "Hangfire for reliable scheduled work",
+      "Custom SQL + reporting for operations KPIs",
+      "Real-time visibility into field performance",
+    ],
+    tech: [
+      "C#",
+      ".NET Core",
+      "Microsoft SQL Server",
+      "EF Core",
+      "Hangfire",
+    ],
+    liveUrl: null,
+    repoUrl: null,
+  },
+  {
+    title: "YEAPS — Sales Tracking System",
+    description:
+      "Internal sales intelligence for YEAPS—individual promoter performance across the organization in one place. Owned the full SDLC from requirements through deployment so leadership could steer incentives and territory plans with data instead of spreadsheets.",
+    image: "/projects/project-3.png",
+    features: [
+      "Promoter-level performance analytics",
+      "Org-wide sales visibility",
+      "Requirements through deployment ownership",
+      "Operational reporting for management",
+    ],
+    tech: ["C#", ".NET Core", "Microsoft SQL Server", "ASP.NET"],
+    liveUrl: null,
+    repoUrl: null,
   },
 ];
 

@@ -9,14 +9,18 @@ type ProjectCardProps = {
   link: string;
 };
 
+const isExternalHref = (href: string) => /^https?:\/\//i.test(href);
+
 export const ProjectCard = ({ src, title, description, link }: ProjectCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const external = isExternalHref(link);
 
   return (
     <Link
       href={link}
-      target="_blank"
-      rel="noreferrer noopener"
+      {...(external
+        ? { target: "_blank" as const, rel: "noreferrer noopener" }
+        : {})}
       className="relative overflow-hidden rounded-xl shadow-lg border border-[#2A0E61] bg-[rgba(3,0,20,0.7)] transition transform hover:scale-105 hover:shadow-purple-500/40"
     >
       <div className="p-3 sm:p-4">
@@ -32,10 +36,8 @@ export const ProjectCard = ({ src, title, description, link }: ProjectCardProps)
             alt={title}
             width={600}
             height={400}
-            className="max-h-[180px] w-auto object-contain rounded-lg sm:max-h-[220px] md:max-h-[260px]"
-            loading="lazy" // Lazy load for better performance
-            placeholder="blur" // Optional: show blurred preview while loading
-            blurDataURL={src} // Required if using placeholder="blur"
+            className="max-h-[180px] w-full object-cover object-center rounded-lg sm:max-h-[220px] md:max-h-[260px]"
+            loading="lazy"
           />
         </div>
 

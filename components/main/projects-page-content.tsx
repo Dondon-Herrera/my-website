@@ -1,6 +1,6 @@
 "use client";
 
-import { MoreHorizontal } from "lucide-react";
+import { ArrowLeft, MoreHorizontal } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
@@ -21,9 +21,9 @@ const techPill =
   "rounded-full border border-white/[0.14] bg-[#0d0f16] px-3 py-1.5 text-[12px] font-medium text-gray-100 md:px-3.5 md:py-2 md:text-[13px]";
 
 const previewFrame =
-  "overflow-hidden rounded-[20px] border border-sky-200/25 bg-[#111520] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]";
+  "relative overflow-hidden rounded-[20px] border border-sky-200/25 bg-[#111520] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]";
 
-const INITIAL_VISIBLE = 2;
+const INITIAL_VISIBLE = 8;
 
 export function ProjectsPageContent() {
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
@@ -128,14 +128,15 @@ export function ProjectsPageContent() {
         <div className="mx-auto mt-14 max-w-[1100px] space-y-8 md:mt-20 md:space-y-10 lg:space-y-12">
           {PROJECTS_SHOWCASE.slice(0, visibleCount).map((project) => (
             <article key={project.title} className={cardShell}>
-              <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-14">
-                <div className={previewFrame}>
+              <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-14">
+                <div
+                  className={`${previewFrame} min-h-[240px] w-full aspect-[4/3] sm:aspect-video lg:aspect-auto lg:min-h-[300px] lg:h-full`}
+                >
                   <Image
                     src={project.image}
                     alt={project.title}
-                    width={640}
-                    height={420}
-                    className="h-auto w-full object-cover object-top"
+                    fill
+                    className="object-cover object-center"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>
@@ -173,26 +174,30 @@ export function ProjectsPageContent() {
                     </div>
                   </div>
 
-                  <div className="mt-7 flex flex-wrap gap-3 md:mt-9 md:gap-4">
-                    <Link
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="inline-flex items-center justify-center rounded-full border border-white/45 bg-transparent px-6 py-2.5 text-[14px] font-semibold text-white transition hover:border-white hover:bg-white/[0.06] md:px-8 md:py-3 md:text-[15px]"
-                    >
-                      View live
-                    </Link>
-                    {project.repoUrl ? (
-                      <Link
-                        href={project.repoUrl}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className="inline-flex items-center justify-center rounded-full border border-white/45 bg-transparent px-6 py-2.5 text-[14px] font-semibold text-white transition hover:border-white hover:bg-white/[0.06] md:px-8 md:py-3 md:text-[15px]"
-                      >
-                        View repo
-                      </Link>
-                    ) : null}
-                  </div>
+                  {project.liveUrl || project.repoUrl ? (
+                    <div className="mt-7 flex flex-wrap gap-3 md:mt-9 md:gap-4">
+                      {project.liveUrl ? (
+                        <Link
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="inline-flex items-center justify-center rounded-full border border-white/45 bg-transparent px-6 py-2.5 text-[14px] font-semibold text-white transition hover:border-white hover:bg-white/[0.06] md:px-8 md:py-3 md:text-[15px]"
+                        >
+                          View live
+                        </Link>
+                      ) : null}
+                      {project.repoUrl ? (
+                        <Link
+                          href={project.repoUrl}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="inline-flex items-center justify-center rounded-full border border-white/45 bg-transparent px-6 py-2.5 text-[14px] font-semibold text-white transition hover:border-white hover:bg-white/[0.06] md:px-8 md:py-3 md:text-[15px]"
+                        >
+                          View repo
+                        </Link>
+                      ) : null}
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </article>
@@ -215,6 +220,19 @@ export function ProjectsPageContent() {
             </button>
           </div>
         ) : null}
+
+        <div className="mx-auto mt-12 flex max-w-[1100px] justify-center md:mt-16">
+          <Link
+            href="/#welcome"
+            className="inline-flex items-center gap-2 rounded-full border border-white/45 bg-transparent px-8 py-3 text-[14px] font-semibold text-white transition hover:border-sky-300/60 hover:bg-white/[0.06] md:px-10 md:py-3.5 md:text-[15px]"
+          >
+            <ArrowLeft
+              className="h-4 w-4 shrink-0 opacity-90 md:h-[18px] md:w-[18px]"
+              aria-hidden
+            />
+            Back to first page
+          </Link>
+        </div>
       </div>
 
       <div className="mx-auto mt-16 max-w-[1200px] px-4 sm:px-6 lg:px-8">

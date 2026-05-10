@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import type { PropsWithChildren } from "react";
 
 import CustomCursorWrapper from "@/components/common/CustomCursorWrapper";
+import { InitialLoadOverlay } from "@/components/common/initial-load-overlay";
 import { Footer } from "@/components/main/footer";
 import { HeroFixedChrome } from "@/components/main/hero-fixed-chrome";
 import { StarsCanvas } from "@/components/main/star-background";
@@ -26,6 +27,15 @@ export const metadata: Metadata = siteConfig;
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          href="/hero_body_cutout.svg"
+          as="image"
+          type="image/svg+xml"
+        />
+        <link rel="preload" href="/formal2.jpg" as="image" />
+      </head>
       <body
         className={cn(
           "relative scroll-smooth overflow-y-scroll overflow-x-hidden bg-transparent",
@@ -44,6 +54,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <AudioPlayer />
           <Footer />
         </div>
+        <InitialLoadOverlay />
       </body>
     </html>
   );

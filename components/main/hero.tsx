@@ -1,9 +1,4 @@
-import dynamic from "next/dynamic";
-
-const HeroContent = dynamic(
-  () => import("@/components/sub/hero-content").then(mod => mod.HeroContent),
-  { ssr: false }
-);
+import { HeroContent } from "@/components/sub/hero-content";
 
 export const Hero = () => {
   return (

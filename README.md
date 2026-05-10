@@ -45,37 +45,17 @@ This portfolio communicates who I am as a software engineer through:
 
 ## Screenshots
 
-Add your exported screenshots to `public/screenshots/` using the file names below. GitHub will render them directly on this README page.
+These screenshots are included in the repository so they render directly on the GitHub repository page.
 
-<table>
-  <tr>
-    <td width="50%">
-      <strong>Home / Hero</strong><br />
-      <img src="./public/screenshots/home.png" alt="Dondon Herrera portfolio home page" width="100%" />
-    </td>
-    <td width="50%">
-      <strong>Skills</strong><br />
-      <img src="./public/screenshots/skills.png" alt="Portfolio skills section" width="100%" />
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <strong>Experience</strong><br />
-      <img src="./public/screenshots/experience.png" alt="Portfolio experience section" width="100%" />
-    </td>
-    <td width="50%">
-      <strong>Projects</strong><br />
-      <img src="./public/screenshots/projects.png" alt="Portfolio projects section" width="100%" />
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <strong>Portfolio Cover</strong><br />
+  <img src="./public/screenshots/cover.png" alt="Dondon Herrera portfolio cover" width="100%" />
+</p>
 
-Recommended screenshot names:
-
-- `public/screenshots/home.png`
-- `public/screenshots/skills.png`
-- `public/screenshots/experience.png`
-- `public/screenshots/projects.png`
+<p align="center">
+  <strong>Hero Section</strong><br />
+  <img src="./public/screenshots/hero.png" alt="Dondon Herrera portfolio hero section" width="100%" />
+</p>
 
 ## Tech Stack
 

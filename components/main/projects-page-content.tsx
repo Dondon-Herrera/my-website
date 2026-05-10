@@ -12,16 +12,16 @@ import { PROJECTS_SHOWCASE } from "@/constants";
 const PORTFOLIO_SKY = "#B6DFFF";
 
 const cardShell =
-  "rounded-[28px] border border-sky-200/25 bg-[#0d1018]/90 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-sm md:p-8 lg:p-10";
+  "rounded-2xl border border-sky-200/25 bg-[#0d1018]/90 p-4 shadow-[0_16px_48px_rgba(0,0,0,0.28)] backdrop-blur-sm md:p-5 lg:p-5";
 
 const statCard =
   "flex min-w-[140px] flex-1 flex-col items-center justify-center rounded-[20px] border border-sky-200/20 bg-[#0a0c12]/95 px-6 py-5 text-center md:min-w-[180px] md:px-8 md:py-7";
 
 const techPill =
-  "rounded-full border border-white/[0.14] bg-[#0d0f16] px-3 py-1.5 text-[12px] font-medium text-gray-100 md:px-3.5 md:py-2 md:text-[13px]";
+  "rounded-full border border-white/[0.14] bg-[#0d0f16] px-2.5 py-1 text-[11px] font-medium text-gray-100 md:px-3 md:py-1 md:text-[11.5px]";
 
 const previewFrame =
-  "relative overflow-hidden rounded-[20px] border border-sky-200/25 bg-[#111520] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]";
+  "relative overflow-hidden rounded-xl border border-sky-200/25 bg-[#111520] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]";
 
 const INITIAL_VISIBLE = 8;
 
@@ -124,36 +124,36 @@ export function ProjectsPageContent() {
           </div>
         </header>
 
-        {/* Project cards */}
-        <div className="mx-auto mt-14 max-w-[1100px] space-y-8 md:mt-20 md:space-y-10 lg:space-y-12">
+        {/* Project cards — full copy + tech; no clamps or scroll regions */}
+        <div className="mx-auto mt-14 max-w-[min(100%,60rem)] space-y-4 md:mt-16 md:space-y-5 lg:space-y-6">
           {PROJECTS_SHOWCASE.slice(0, visibleCount).map((project) => (
             <article key={project.title} className={cardShell}>
-              <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-14">
+              <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] lg:gap-5 xl:gap-6">
                 <div
-                  className={`${previewFrame} min-h-[240px] w-full aspect-[4/3] sm:aspect-video lg:aspect-auto lg:min-h-[300px] lg:h-full`}
+                  className={`${previewFrame} group aspect-[4/3] w-full shrink-0`}
                 >
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover object-center"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    sizes="(max-width: 1024px) min(960px, 100vw) 48vw"
+                    className="h-full w-full object-cover object-center transition-transform duration-500 ease-out motion-reduce:transition-none motion-reduce:group-hover:scale-100 group-hover:scale-[1.045]"
                   />
                 </div>
 
-                <div className="flex flex-col text-left">
-                  <h2 className="text-[22px] font-bold leading-snug tracking-tight text-white md:text-[28px] md:leading-tight lg:text-[32px]">
+                <div className="flex min-h-0 min-w-0 flex-col text-left">
+                  <h2 className="text-[17px] font-bold leading-snug tracking-tight text-white md:text-[19px] md:leading-tight lg:text-[20px]">
                     {project.title}
                   </h2>
-                  <p className="mt-4 text-[14px] leading-relaxed text-gray-400 md:mt-5 md:text-[15px] md:leading-relaxed lg:text-[16px]">
+                  <p className="mt-2 text-[12px] leading-relaxed text-gray-400 md:mt-2.5 md:text-[13px] md:leading-relaxed">
                     {project.description}
                   </p>
 
-                  <ul className="mt-5 flex flex-wrap gap-x-3 gap-y-2 text-[13px] leading-snug text-sky-200/85 md:mt-6 md:text-[14px]">
+                  <ul className="mt-2.5 flex flex-wrap gap-x-2 gap-y-1 text-[11px] leading-snug text-sky-200/85 md:mt-3 md:gap-x-2.5 md:text-[11.5px]">
                     {project.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2">
+                      <li key={f} className="flex max-w-full items-center gap-1.5">
                         <span
-                          className="h-1 w-1 shrink-0 rounded-full bg-sky-300/80"
+                          className="h-0.5 w-0.5 shrink-0 rounded-full bg-sky-300/80"
                           aria-hidden
                         />
                         {f}
@@ -161,11 +161,11 @@ export function ProjectsPageContent() {
                     ))}
                   </ul>
 
-                  <div className="mt-6 md:mt-8">
-                    <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-gray-400 md:text-[13px]">
+                  <div className="mt-3 md:mt-3.5">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-gray-400 md:text-[11px]">
                       Tech used
                     </p>
-                    <div className="mt-3 flex flex-wrap gap-2 md:gap-2.5">
+                    <div className="mt-1.5 flex flex-wrap gap-1 md:gap-1.5">
                       {project.tech.map((t) => (
                         <span key={t} className={techPill}>
                           {t}
@@ -175,13 +175,13 @@ export function ProjectsPageContent() {
                   </div>
 
                   {project.liveUrl || project.repoUrl ? (
-                    <div className="mt-7 flex flex-wrap gap-3 md:mt-9 md:gap-4">
+                    <div className="mt-4 flex flex-wrap gap-2 md:mt-4 md:gap-2.5">
                       {project.liveUrl ? (
                         <Link
                           href={project.liveUrl}
                           target="_blank"
                           rel="noreferrer noopener"
-                          className="inline-flex items-center justify-center rounded-full border border-white/45 bg-transparent px-6 py-2.5 text-[14px] font-semibold text-white transition hover:border-white hover:bg-white/[0.06] md:px-8 md:py-3 md:text-[15px]"
+                          className="inline-flex items-center justify-center rounded-full border border-white/45 bg-transparent px-4 py-1.5 text-[12px] font-semibold text-white transition hover:border-white hover:bg-white/[0.06] md:px-5 md:py-2 md:text-[13px]"
                         >
                           View live
                         </Link>
@@ -191,7 +191,7 @@ export function ProjectsPageContent() {
                           href={project.repoUrl}
                           target="_blank"
                           rel="noreferrer noopener"
-                          className="inline-flex items-center justify-center rounded-full border border-white/45 bg-transparent px-6 py-2.5 text-[14px] font-semibold text-white transition hover:border-white hover:bg-white/[0.06] md:px-8 md:py-3 md:text-[15px]"
+                          className="inline-flex items-center justify-center rounded-full border border-white/45 bg-transparent px-4 py-1.5 text-[12px] font-semibold text-white transition hover:border-white hover:bg-white/[0.06] md:px-5 md:py-2 md:text-[13px]"
                         >
                           View repo
                         </Link>
@@ -221,7 +221,7 @@ export function ProjectsPageContent() {
           </div>
         ) : null}
 
-        <div className="mx-auto mt-12 flex max-w-[1100px] justify-center md:mt-16">
+        <div className="mx-auto mt-12 flex max-w-[min(100%,60rem)] justify-center md:mt-14">
           <Link
             href="/#welcome"
             className="inline-flex items-center gap-2 rounded-full border border-white/45 bg-transparent px-8 py-3 text-[14px] font-semibold text-white transition hover:border-sky-300/60 hover:bg-white/[0.06] md:px-10 md:py-3.5 md:text-[15px]"

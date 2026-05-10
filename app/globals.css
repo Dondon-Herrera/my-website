@@ -84,3 +84,86 @@ body {
 .about-marquee-track {
   animation: about-marquee 28s linear infinite;
 }
+
+/* About-me profile: flowing “magic” border + star accents */
+@keyframes about-profile-border-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes about-profile-star-pulse {
+  0%,
+  100% {
+    opacity: 0.2;
+    filter: blur(0.3px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.about-profile-magic-wrap {
+  position: relative;
+  border-radius: 1rem;
+  /* Ring thickness: rotating gradient shows in this gutter */
+  padding: 3px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.about-profile-magic-wrap::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+  width: 220%;
+  height: 220%;
+  margin-left: -110%;
+  margin-top: -110%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(34, 211, 238, 0.15) 55deg,
+    rgba(168, 85, 247, 0.95) 115deg,
+    rgba(56, 189, 248, 0.95) 175deg,
+    rgba(147, 51, 234, 0.85) 235deg,
+    rgba(125, 211, 252, 0.55) 295deg,
+    transparent 360deg
+  );
+  animation: about-profile-border-spin 5.5s linear infinite;
+}
+
+.about-profile-magic-inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  border-radius: calc(1rem - 3px);
+  overflow: hidden;
+  background: #0d0f16;
+}
+
+.about-profile-star {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  font-size: 12px;
+  line-height: 1;
+  color: rgba(224, 242, 254, 0.98);
+  text-shadow:
+    0 0 6px rgba(56, 189, 248, 0.95),
+    0 0 14px rgba(168, 85, 247, 0.65);
+  animation: about-profile-star-pulse 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-profile-magic-wrap::before {
+    animation-duration: 18s;
+  }
+  .about-profile-star {
+    animation: none;
+    opacity: 0.75;
+  }
+}

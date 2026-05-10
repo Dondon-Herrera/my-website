@@ -342,16 +342,74 @@ export function AboutMeContent() {
         {/* Top: profile + summary */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-6">
           <div className={`${cardBase} md:col-span-1`}>
-            <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0d0f16]">
-              <Image
-                src="/hero_body_cutout.svg"
-                alt="Dondon Herrera"
-                width={400}
-                height={520}
-                unoptimized
-                className="aspect-[4/5] w-full object-contain object-bottom"
-                priority
-              />
+            <div className="about-profile-magic-wrap rounded-2xl shadow-[0_0_28px_rgba(56,189,248,0.12)]">
+              <span
+                className="about-profile-star left-[10%] top-[6%] -translate-x-1/2 -translate-y-1/2"
+                style={{ animationDelay: "0s" }}
+                aria-hidden
+              >
+                ✦
+              </span>
+              <span
+                className="about-profile-star right-[8%] top-[14%] translate-x-1/2 -translate-y-1/2"
+                style={{ animationDelay: "0.35s" }}
+                aria-hidden
+              >
+                ✦
+              </span>
+              <span
+                className="about-profile-star right-[6%] top-1/2 translate-x-1/2 -translate-y-1/2"
+                style={{ animationDelay: "0.7s" }}
+                aria-hidden
+              >
+                ✦
+              </span>
+              <span
+                className="about-profile-star right-[10%] bottom-[12%] translate-x-1/2 translate-y-1/2"
+                style={{ animationDelay: "1.05s" }}
+                aria-hidden
+              >
+                ✦
+              </span>
+              <span
+                className="about-profile-star left-1/2 bottom-[6%] -translate-x-1/2 translate-y-1/2"
+                style={{ animationDelay: "1.4s" }}
+                aria-hidden
+              >
+                ✦
+              </span>
+              <span
+                className="about-profile-star left-[8%] bottom-[14%] -translate-x-1/2 translate-y-1/2"
+                style={{ animationDelay: "0.2s" }}
+                aria-hidden
+              >
+                ✦
+              </span>
+              <span
+                className="about-profile-star left-[6%] top-1/2 -translate-x-1/2 -translate-y-1/2"
+                style={{ animationDelay: "1.75s" }}
+                aria-hidden
+              >
+                ✦
+              </span>
+              <span
+                className="about-profile-star left-1/2 top-[3%] -translate-x-1/2 -translate-y-1/2"
+                style={{ animationDelay: "0.55s" }}
+                aria-hidden
+              >
+                ✦
+              </span>
+              <div className="about-profile-magic-inner">
+                <Image
+                  src="/profile.png"
+                  alt="Dondon Herrera"
+                  width={800}
+                  height={1000}
+                  className="aspect-[4/5] w-full object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 320px"
+                  priority
+                />
+              </div>
             </div>
             <p className={`${sectionLabel} mt-8`}>About me</p>
             <h1 className="mt-3 text-[28px] font-bold leading-tight tracking-tight text-white md:text-[32px]">

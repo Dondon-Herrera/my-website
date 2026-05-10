@@ -1,192 +1,210 @@
 <a name="readme-top"></a>
 
-# Modern Space Theme Portfolio using Next.js 14 and Three.js
+# Dondon Herrera — Software Engineer Portfolio
 
-![Modern Space Theme Portfolio using Next.js 14 and Three.js](/.github/images/img_main.png "Modern Space Theme Portfolio using Next.js 14 and Three.js")
+A modern personal portfolio for **Dondon Herrera**, a Senior Software Engineer based in Canada. Built with **Next.js 14**, **TypeScript**, **Tailwind CSS**, **Framer Motion**, and **Three.js** to present background, technical expertise, education, professional experience, project work, and contact links in a polished interactive web experience.
 
-[![Ask Me Anything!](https://flat.badgen.net/static/Ask%20me/anything?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy "Ask Me Anything!")
-[![GitHub license](https://flat.badgen.net/github/license/sanidhyy/space-portfolio?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/space-portfolio/blob/main/LICENSE "GitHub license")
-[![Maintenance](https://flat.badgen.net/static/Maintained/yes?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/space-portfolio/commits/main "Maintenance")
-[![GitHub branches](https://flat.badgen.net/github/branches/sanidhyy/space-portfolio?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/space-portfolio/branches "GitHub branches")
-[![Github commits](https://flat.badgen.net/github/commits/sanidhyy/space-portfolio?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/space-portfolio/commits "Github commits")
-[![GitHub issues](https://flat.badgen.net/github/issues/sanidhyy/space-portfolio?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/space-portfolio/issues "GitHub issues")
-[![GitHub pull requests](https://flat.badgen.net/github/prs/sanidhyy/space-portfolio?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/space-portfolio/pulls "GitHub pull requests")
-[![Netlify Status](https://api.netlify.com/api/v1/badges/451ed0e0-3541-474e-896a-4987e30a7722/deploy-status)](https://spaceportfolio.netlify.app/ "Netlify Status")
+<p>
+  <a href="https://github.com/Dondon-Herrera">
+    <img alt="GitHub" src="https://img.shields.io/badge/GitHub-Dondon--Herrera-181717?style=for-the-badge&logo=github" />
+  </a>
+  <a href="https://www.linkedin.com/in/dondon-herrera/">
+    <img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Dondon%20Herrera-0A66C2?style=for-the-badge&logo=linkedin" />
+  </a>
+  <a href="https://t.me/dondonH0808">
+    <img alt="Telegram" src="https://img.shields.io/badge/Telegram-@dondonH0808-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" />
+  </a>
+  <a href="mailto:herreradondon107@gmail.com">
+    <img alt="Email" src="https://img.shields.io/badge/Email-herreradondon107%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+  <img alt="Next.js" src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=nextdotjs" />
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-Portfolio-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+</p>
 
-<!-- Table of Contents -->
-<details>
+## About Me
 
-<summary>
+Hi, I'm **Dondon Herrera** — a passionate Software Engineer based in **Canada**, open to both **relocation and remote opportunities**. I specialize in building scalable backend platforms, AI-powered systems, and cloud-native applications designed for performance, reliability, and real-world business impact.
 
-# :notebook_with_decorative_cover: Table of Contents
+I'm a Senior Software Engineer specializing in **.NET, C#, Java, Node.js, Azure, and distributed systems**. I design and deliver enterprise-grade APIs, microservices, AI-assisted workflows, and cloud platforms that prioritize scalability, maintainability, and operational excellence — from backend architecture and integrations to CI/CD automation and production infrastructure.
 
-</summary>
+- Focused on cloud-native architecture, distributed systems, and high-performance backend engineering.
+- Experienced with AI-assisted development workflows including GitHub Copilot, Claude Code, and RAG-based systems.
+- Driven by transforming complex ideas into high-quality products that deliver meaningful value and exceptional user experiences.
 
-- [Folder Structure](#bangbang-folder-structure)
-- [Getting Started](#toolbox-getting-started)
-- [Screenshots](#camera-screenshots)
-- [Tech Stack](#gear-tech-stack)
-- [Stats](#wrench-stats)
-- [Contribute](#raised_hands-contribute)
-- [Acknowledgements](#gem-acknowledgements)
-- [Buy Me a Coffee](#coffee-buy-me-a-coffee)
-- [Follow Me](#rocket-follow-me)
-- [Learn More](#books-learn-more)
-- [Deploy on Vercel](#page_with_curl-deploy-on-vercel)
-- [Give A Star](#star-give-a-star)
-- [Star History](#star2-star-history)
-- [Give A Star](#star-give-a-star)
+## Overview
 
-</details>
+This portfolio communicates who I am as a software engineer through:
 
-## :bangbang: Folder Structure
+- A cinematic hero section with animated visuals.
+- Skills grouped across frontend, backend, cloud, DevOps, data, APIs, payments, and AI-assisted engineering.
+- Education and certifications (LinkedIn Learning, MongoDB University).
+- A timeline of professional experience across enterprise SaaS, fintech, e-commerce, and CRM systems.
+- A project showcase featuring real-world platforms in e-commerce, fintech, CRM, recruitment, and operations.
+- Responsive layouts optimized for desktop and mobile.
+- Smooth motion, 3D visual elements, and a GitHub-friendly README presentation.
 
-Here is the folder structure of this app.
+## Screenshots
+
+Add your exported screenshots to `public/screenshots/` using the file names below. GitHub will render them directly on this README page.
+
+<table>
+  <tr>
+    <td width="50%">
+      <strong>Home / Hero</strong><br />
+      <img src="./public/screenshots/home.png" alt="Dondon Herrera portfolio home page" width="100%" />
+    </td>
+    <td width="50%">
+      <strong>Skills</strong><br />
+      <img src="./public/screenshots/skills.png" alt="Portfolio skills section" width="100%" />
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>Experience</strong><br />
+      <img src="./public/screenshots/experience.png" alt="Portfolio experience section" width="100%" />
+    </td>
+    <td width="50%">
+      <strong>Projects</strong><br />
+      <img src="./public/screenshots/projects.png" alt="Portfolio projects section" width="100%" />
+    </td>
+  </tr>
+</table>
+
+Recommended screenshot names:
+
+- `public/screenshots/home.png`
+- `public/screenshots/skills.png`
+- `public/screenshots/experience.png`
+- `public/screenshots/projects.png`
+
+## Tech Stack
+
+<p>
+  <img alt="Next.js" src="https://img.shields.io/badge/Next.js-14.2.15-000000?style=for-the-badge&logo=nextdotjs" />
+  <img alt="React" src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=000" />
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind%20CSS-3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img alt="Three.js" src="https://img.shields.io/badge/Three.js-3D-000000?style=for-the-badge&logo=threedotjs" />
+  <img alt="Framer Motion" src="https://img.shields.io/badge/Framer%20Motion-Animation-0055FF?style=for-the-badge&logo=framer" />
+</p>
+
+Core dependencies include:
+
+- `next`
+- `react`
+- `typescript`
+- `tailwindcss`
+- `framer-motion`
+- `three`
+- `@react-three/fiber`
+- `@react-three/drei`
+- `react-icons`
+- `lucide-react`
+- `swiper`
+
+## Project Structure
 
 ```bash
-space-portfolio/
-  |- app/
-    |-- favicon.ico
-    |-- globals.css
-    |-- layout.tsx
-    |-- page.tsx
-  |- components/
-    |-- main/
-        |--- encryption.tsx
-        |--- footer.tsx
-        |--- hero.tsx
-        |--- navbar.tsx
-        |--- projects.tsx
-        |--- skills.tsx
-        |--- star-background.tsx
-    |-- sub/
-        |--- hero-content.tsx
-        |--- project-card.tsx
-        |--- skill-data-provider.tsx
-        |--- skill-text.tsx
-  |- config/
-    |-- index.ts
-  |- constants/
-    |-- index.ts
-  |- lib/
-    |-- motion.ts
-    |-- utils.ts
-  |- public/
-    |-- projects/
-    |-- skills/
-    |-- videos/
-    |-- hero-bg.svg
-    |-- lock-main.png
-    |-- lock-top.png
-    |-- logo.png
-  |- .eslintrc.json
-  |- .gitignore
-  |- next.config.js
-  |- package-lock.json
-  |- package.json
-  |- postcss.config.js
-  |- tailwind.config.ts
-  |- tsconfig.json
+.
+|-- app/
+|   |-- globals.css
+|   |-- layout.tsx
+|   `-- page.tsx
+|-- components/
+|   |-- main/
+|   |-- sub/
+|   `-- common/
+|-- config/
+|   `-- index.ts
+|-- constants/
+|   `-- index.ts
+|-- lib/
+|-- public/
+|   |-- screenshots/
+|   |-- projects/
+|   `-- skills/
+|-- package.json
+|-- tailwind.config.ts
+`-- tsconfig.json
 ```
 
-<br />
+## Getting Started
 
-## :toolbox: Getting Started
+Install dependencies:
 
-1. Make sure **Git** and **NodeJS** is installed.
+```bash
+npm install --legacy-peer-deps
+```
 
-2. Clone this repository to your local computer.
+Run the development server:
 
-3. Open terminal in root directory. Run `npm install --legacy-peer-deps` or `yarn install --legacy-peer-deps`.
+```bash
+npm run dev
+```
 
-4. Now app is fully configured 👍 and you can start using this app using `npm run dev` or `yarn dev`.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## :camera: Screenshots:
+Build for production:
 
-![Modern UI/UX](/.github/images/img1.png "Modern UI/UX")
+```bash
+npm run build
+```
 
-![Showcase your skills](/.github/images/img2.png "Showcase your skills")
+Start the production server:
 
-![Built with Typescript](/.github/images/img3.png "Built with Typescript")
+```bash
+npm run start
+```
 
-![Showcase your projects](/.github/images/img4.png "Showcase your projects")
+## Available Scripts
 
-## :gear: Tech Stack
+- `npm run dev` starts the local development server.
+- `npm run build` creates a production build.
+- `npm run start` runs the production server.
+- `npm run lint` checks the project with Next.js linting.
 
-[![React JS](https://skillicons.dev/icons?i=react "React JS")](https://react.dev/ "React JS") [![Next JS](https://skillicons.dev/icons?i=next "Next JS")](https://nextjs.org/ "Next JS") [![Typescript](https://skillicons.dev/icons?i=ts "Typescript")](https://www.typescriptlang.org/ "Typescript") [![Tailwind CSS](https://skillicons.dev/icons?i=tailwind "Tailwind CSS")](https://tailwindcss.com/ "Tailwind CSS") [![Netlify](https://skillicons.dev/icons?i=netlify "Netlify")](https://netlify.app/ "Netlify") [![Three.js](https://skillicons.dev/icons?i=threejs "Three.js")](https://threejs.org/ "Three.js")
+## Featured Sections
 
-## :wrench: Stats
+- **Hero**: Personal introduction with animated portfolio visuals.
+- **Skills**: Frontend, backend, cloud, DevOps, database, messaging, API, fintech, and AI-related technologies.
+- **Education**: Academic background and professional learning.
+- **Experience**: Timeline of software engineering roles and impact.
+- **Projects**: Real-world systems across e-commerce, fintech, CRM, recruitment, and operations.
+- **Stats**: Performance and portfolio highlights.
 
-[![Stats for Space Portfolio](/.github/images/stats.svg "Stats for Space Portfolio")](https://pagespeed.web.dev/analysis/https-spaceportfolio-netlify-app/2efbmg117d "Stats for Space Portfolio")
+## Experience Highlights
 
-## :raised_hands: Contribute
+- **Senior Software Engineer — Offshore Team** (Apr 2023 – Jul 2024 · Remote)
+- **Senior Backend Engineer (Freelance) — Kobkiat-IT** (Oct 2020 – Nov 2023 · Remote)
+- **Backend Developer — Emerio** (Jun 2019 – Sep 2020 · Manila, Philippines)
+- **Backend Developer — Yeaps** (Nov 2018 – Jun 2019 · Manila, Philippines)
 
-You might encounter some bugs while using this app. You are more than welcome to contribute. Just submit changes via pull request and I will review them before merging. Make sure you follow community guidelines.
+## Education
 
-## :gem: Acknowledgements
+- **Software Development** — Bow Valley College, Alberta, Canada (Sep 2024 – Apr 2026)
+- **Bachelor's Degree in Information Technology** — Cavite State University, Cavite, Philippines (Jun 2011 – Apr 2016)
 
-Useful resources and dependencies that are used in Space Portfolio.
+## Certifications
 
-- [@heroicons/react](https://www.npmjs.com/package/@heroicons/react): ^2.1.1
-- [@react-three/drei](https://www.npmjs.com/package/@react-three/drei): ^9.93.0
-- [@react-three/fiber](https://www.npmjs.com/package/@react-three/fiber): ^8.15.13
-- [clsx](https://www.npmjs.com/package/clsx): ^2.1.0
-- [framer-motion](https://www.npmjs.com/package/framer-motion): ^10.17.12
-- [next](https://www.npmjs.com/package/next): 14.0.4
-- [react](https://www.npmjs.com/package/react): ^18
-- [react-dom](https://www.npmjs.com/package/react-dom): ^18
-- [react-icons](https://www.npmjs.com/package/react-icons): ^5.0.1
-- [react-intersection-observer](https://www.npmjs.com/package/react-intersection-observer): ^9.5.3
-- [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^2.2.0
-- [three](https://www.npmjs.com/package/three): ^0.160.0
-- [@types/node](https://www.npmjs.com/package/@types/node): ^20
-- [@types/react](https://www.npmjs.com/package/@types/react): ^18
-- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^18
-- [autoprefixer](https://www.npmjs.com/package/autoprefixer): ^10.0.1
-- [eslint](https://www.npmjs.com/package/eslint): ^8
-- [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 14.0.4
-- [postcss](https://www.npmjs.com/package/postcss): ^8
-- [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^3.3.0
-- [typescript](https://www.npmjs.com/package/typescript): ^5
+- **Java: Data Structures** — LinkedIn Learning (Jan 2026)
+- **M220N: MongoDB for .NET Developers** — MongoDB University (May 2021)
 
-## :coffee: Buy Me a Coffee
+## Contact
 
-[<img src="https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" width="200" />](https://www.buymeacoffee.com/sanidhy "Buy me a Coffee")
+- **Name:** Dondon Herrera
+- **Location:** Canada (open to relocation and remote)
+- **GitHub:** [Dondon-Herrera](https://github.com/Dondon-Herrera/)
+- **LinkedIn:** [linkedin.com/in/dondon-herrera](https://www.linkedin.com/in/dondon-herrera/)
+- **Telegram:** [@dondonH0808](https://t.me/dondonH0808)
+- **Email:** [herreradondon107@gmail.com](mailto:herreradondon107@gmail.com)
+- **Phone:** [+1 (254) 268-1568](tel:+12542681568)
 
-## :rocket: Follow Me
+## Deployment
 
-[![GitHub followers](https://img.shields.io/github/followers/sanidhyy?style=social&label=Follow&maxAge=2592000)](https://github.com/sanidhyy "Follow Me")
-[![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FTechnicalShubam)](https://twitter.com/intent/tweet?text=Check+out+this+amazing+app:&url=https%3A%2F%2Fgithub.com%2Fsanidhyy%2Fspace-portfolio "Tweet")
-[![YouTube](https://img.shields.io/youtube/channel/subscribers/UCNAz_hUVBG2ZUN8TVm0bmYw)](https://www.youtube.com/@OPGAMER. "Subscribe my YouTube Channel")
+This project is ready to deploy on platforms that support Next.js, such as [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/).
 
-## :books: Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
+Personal portfolio of Dondon Herrera. The codebase is provided for reference; please do not reuse personal content (name, photo, biography, certifications, or project descriptions) without permission.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## :page_with_curl: Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## :star: Give A Star
-
-You can also give this repository a star to show more people and they can use this repository.
-
-## :star2: Star History
-
-<a href="https://star-history.com/#sanidhyy/space-portfolio&Timeline">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=sanidhyy/space-portfolio&type=Timeline&theme=dark" />
-  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=sanidhyy/space-portfolio&type=Timeline" />
-  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=sanidhyy/space-portfolio&type=Timeline" />
-</picture>
-</a>
-
-<br />
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

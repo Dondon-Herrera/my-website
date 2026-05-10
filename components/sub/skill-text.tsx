@@ -32,7 +32,7 @@ const SkillTextComponent = () => {
         {...fadeRight}
         className="text-[14px] sm:text-[16px] text-gray-200 mt-2 mb-6 text-center"
       >
-        Frontend, Backend, Databases, Cloud, and AI — I Build It All
+        Backend, Frontend, Databases, Cloud, and AI — I Build It All Pretty Fast and Pretty Good.
       </motion.div>
     </div>
   );

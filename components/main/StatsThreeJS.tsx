@@ -7,9 +7,9 @@ import { motion, useInView } from "framer-motion";
 
 const stats = [
   { label: "Available Immediately", value: null, gradient: "bg-gradient-purple-cyan" },
-  { label: "Open for Freelance Work", value: null, gradient: "bg-gradient-cyan-blue" },
-  { label: "Years of Experience", value: 1, gradient: "bg-gradient-yellow-orange" },
-  { label: "Projects Delivered", value: 15, gradient: "bg-gradient-green-teal" },
+  { label: "Open for Remote Work", value: null, gradient: "bg-gradient-cyan-blue" },
+  { label: "Years of Experience", value: 8, gradient: "bg-gradient-yellow-orange" },
+  { label: "Projects Delivered", value: 30, gradient: "bg-gradient-green-teal" },
 ];
 
 type StatCardProps = {

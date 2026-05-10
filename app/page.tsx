@@ -13,9 +13,11 @@ export default function Home() {
         <Hero />
         <Skills />
         <Education />
-        <Experience />
-        <Encryption />
-        <Projects />
+        <div className="flex flex-col gap-0">
+          <Experience />
+          <Encryption />
+          <Projects />
+        </div>
         <StatsPage />
       </div>
     </main>

@@ -57,7 +57,7 @@ export const Projects = () => {
   return (
     <section
       id="my-projects"
-      className="relative flex flex-col items-center justify-center overflow-hidden py-12 sm:py-16 md:py-20"
+      className="relative mt-0 flex flex-col items-center justify-center overflow-hidden pt-0 pb-12 sm:pb-16 md:pb-20"
     >
       
       <div className="absolute inset-0 -z-10 opacity-30">

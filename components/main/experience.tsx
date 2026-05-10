@@ -29,33 +29,52 @@ const ORB_SPRING = { stiffness: 95, damping: 24, mass: 0.32, restDelta: 0.0004 }
 
 const experiences = [
   {
-    company: "CYBERCLIPPER SOLUTIONS LLP",
-    role: "Software Engineer",
-    date: "Jan 2025 – Present",
+    company: "Offshore Team",
+    role: "Senior Software Engineer",
+    date: "Apr 2023 – Jul 2024 · Remote",
     points: [
-      "Led a cross-functional team delivering scalable, high-performance web apps.",
-      "Owned platform integrations: REST APIs, payment gateways, and third-party services.",
-      "Hired and mentored developers; improved interview loops and onboarding.",
-      "Drove project planning and delivery to align software outcomes with business goals.",
-      "Improved web visibility using Search Console, Analytics, and SEO best practices.",
+      "Architected enterprise SaaS backends (C#, .NET Core, Node.js, PostgreSQL, Redis, Kafka) for 120K+ monthly active users across multi-client deployments.",
+      "Re-engineered API and database access patterns: ~47% lower average endpoint latency and more stable peak-hour throughput.",
+      "Designed event-driven microservices and Kafka-backed async pipelines, reducing operational bottlenecks by ~55%.",
+      "Migrated legacy monoliths to Docker- and Kubernetes-based microservices: ~40% fewer deployment rollback incidents.",
+      "Integrated GitHub Copilot and AI-assisted workflows; prototyped RAG-style tools for documentation discovery and troubleshooting.",
+      "Expanded Azure (App Services, Storage) and automation for enterprise customers; mentored engineers via reviews and pair programming.",
     ],
   },
   {
-    company: "NEXOCIDE",
-    role: "Full Stack Developer Intern",
-    date: "Aug 2024 – Sep 2024",
+    company: "Kobkiat-IT",
+    role: "Senior Backend Engineer (Freelance)",
+    date: "Oct 2020 – Nov 2023 · Remote",
     points: [
-      "Built end-to-end features with Next.js, Tailwind CSS, and Firebase; +15% engagement.",
-      "Designed REST APIs and optimized database queries; reduced response time by 20%.",
+      "Built scalable backends for logistics, e-commerce, booking, and CRM using Java, Spring Boot, .NET Core, Node.js, MongoDB, and PostgreSQL.",
+      "Delivered high-volume transaction processing—1.5M+ monthly transactions—with stable performance under concurrency.",
+      "API orchestration for ERP, payment gateways, shipping providers, and third-party vendor platforms.",
+      "Optimized indexing, query plans, and distributed caching: ~52% better database performance with lower resource use.",
+      "Automated CI/CD and provisioning with Terraform and GitHub Actions, cutting manual deployment effort by ~40%.",
     ],
   },
   {
-    company: "SKYNET E-SOLUTION PVT LTD",
-    role: "Software Developer Intern",
-    date: "Jun 2024 – Aug 2024",
+    company: "Emerio",
+    role: "Backend Developer",
+    date: "Jun 2019 – Sep 2020 · Manila, Philippines",
     points: [
-      "Improved page load speeds by 25% using PHP, JavaScript, HTML5, CSS3, Bootstrap.",
-      "Contributed to CI/CD pipelines; delivered zero-downtime launches and smoother releases.",
+      "Developed backend APIs and integrations with Java, Spring Boot, C#, and SQL Server for business process automation.",
+      "Integration services connecting enterprise and third-party systems cut manual operational effort by ~60%.",
+      "API refactoring, asynchronous processing, and query tuning reduced average processing time by ~42%.",
+      "Built scheduled sync and data migration workflows for large operational and reporting datasets.",
+      "Contributed to CI/CD modernization and worked with QA and infrastructure on production reliability and observability.",
+    ],
+  },
+  {
+    company: "Yeaps",
+    role: "Backend Developer",
+    date: "Nov 2018 – Jun 2019 · Manila, Philippines",
+    points: [
+      "Shipped Node.js, Express, MySQL, and MongoDB APIs for operational and customer-facing platforms.",
+      "Implemented authentication, session management, and secure API layers for customer web applications.",
+      "Reusable backend modules accelerated delivery across projects; optimizations improved response times by ~30%.",
+      "Integrated payment processing, third-party APIs, and notification workflows.",
+      "Supported production deployments, debugging, and Agile-based delivery.",
     ],
   },
 ];
@@ -94,11 +113,11 @@ export const Experience = () => {
   }, []);
 
   const travel = Math.max(0, lineHeight);
-  // Invert mapping so: scroll down → globe goes up, scroll up → globe goes down.
+  // Scroll down → progress increases → orb moves down the timeline (same direction as content).
   const orbTranslateY = useTransform(
     smoothProgress,
     [0, 1],
-    [travel - orbHalf, -orbHalf]
+    [-orbHalf, travel - orbHalf]
   );
 
   const scrollTimelineToProgress = useCallback((p: number) => {
@@ -127,7 +146,7 @@ export const Experience = () => {
     const rect = timeline.getBoundingClientRect();
     const lh = Math.max(1, timeline.clientHeight);
     const y = e.clientY - rect.top;
-    const p = 1 - Math.min(Math.max(y / lh, 0), 1);
+    const p = Math.min(Math.max(y / lh, 0), 1);
     scrollTimelineToProgress(p);
   }, [scrollTimelineToProgress]);
 
@@ -147,7 +166,7 @@ export const Experience = () => {
   return (
     <section
       id="experience"
-      className="relative flex flex-col items-center justify-center py-10 sm:py-20"
+      className="relative flex flex-col items-center justify-center pt-10 pb-0 sm:pt-20 sm:pb-0"
     >
       {/* Background Orb */}
       <div className="absolute inset-0 -z-10">
@@ -162,7 +181,7 @@ export const Experience = () => {
       </div>
 
       {/* Heading */}
-      <h2 className="text-2xl sm:text-4xl md:text-[40px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 mb-10 sm:mb-16">
+      <h2 className="mb-4 text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 sm:mb-6 sm:text-4xl md:mb-8 md:text-[40px]">
         Experience
       </h2>
 

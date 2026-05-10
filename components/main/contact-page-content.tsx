@@ -102,10 +102,10 @@ export function ContactPageContent() {
                       Email
                     </p>
                     <Link
-                      href="mailto:sharmapraduman6@gmail.com"
+                      href="mailto:herreradondon107@gmail.com"
                       className="mt-1 block truncate text-[15px] font-medium text-white underline-offset-2 hover:text-cyan-200 hover:underline"
                     >
-                      sharmapraduman6@gmail.com
+                      herreradondon107@gmail.com
                     </Link>
                   </div>
                 </li>
@@ -118,7 +118,7 @@ export function ContactPageContent() {
                       Response
                     </p>
                     <p className="mt-1 text-[15px] font-medium text-white">
-                      Within 2 – 4 hours
+                      Within 1 – 2 hours
                     </p>
                   </div>
                 </li>
@@ -131,7 +131,7 @@ export function ContactPageContent() {
                       Location
                     </p>
                     <p className="mt-1 text-[15px] font-medium text-white">
-                      Remote · India
+                    Calgary, AB, Canada
                     </p>
                   </div>
                 </li>

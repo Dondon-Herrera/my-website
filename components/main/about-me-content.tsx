@@ -1,10 +1,17 @@
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { RxGithubLogo, RxLinkedinLogo } from "react-icons/rx";
 import { SiUpwork } from "react-icons/si";
 
 import { PortfolioCtaFooter } from "@/components/main/portfolio-cta-footer";
-import { LINKS } from "@/constants";
+import { siteConfig } from "@/config";
+import { CERTIFICATION_SUMMARY_ITEMS, LINKS } from "@/constants";
+
+const credentialHolderName =
+  siteConfig.authors && !Array.isArray(siteConfig.authors)
+    ? siteConfig.authors.name ?? "Dondon Herrera"
+    : "Dondon Herrera";
 
 const cardBase =
   "rounded-[24px] border border-[#30363d]/80 bg-[#11121d] p-8 shadow-[0_24px_80px_rgba(0,0,0,0.35)] md:p-10";
@@ -15,33 +22,49 @@ const sectionLabel =
 const pill =
   "rounded-[10px] border border-white/[0.12] bg-[#0d0f16] px-3 py-1.5 text-[13px] text-gray-200 md:px-3.5 md:py-2 md:text-[14px]";
 
+/** Soft light CTA — certificate sidebar (matches pale blue panel) */
+const certificateLiveViewClass =
+  "group relative mt-4 inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl border border-sky-200/70 bg-white/65 px-4 py-3 text-[12px] font-semibold tracking-wide text-slate-600 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_rgba(56,189,248,0.08)] backdrop-blur-[6px] outline-none transition duration-300 ease-out hover:border-sky-200 hover:bg-white/90 hover:text-slate-800 hover:shadow-[0_2px_8px_rgba(15,23,42,0.06),0_12px_32px_rgba(125,211,252,0.18)] focus-visible:ring-2 focus-visible:ring-sky-300/45 focus-visible:ring-offset-2 focus-visible:ring-offset-[#e4eaf3] active:scale-[0.99]";
+
 const experiences = [
   {
-    date: "Jan 2025 — Present",
-    title: "Software Engineer",
-    org: "CYBERCLIPPER SOLUTIONS LLP",
-    desc: "Led delivery of scalable web apps, integrations, and platform growth initiatives.",
+    date: "Apr 2023 — Jul 2024 · Remote",
+    title: "Senior Software Engineer",
+    org: "Offshore Team",
+    desc: "Enterprise SaaS backends in C#, .NET Core, Node.js, PostgreSQL, Redis, and Kafka for 120K+ MAUs; cut average API latency ~47% and strengthened peak throughput. Event-driven microservices and Kafka/async workflows reduced bottlenecks ~55%; Docker/Kubernetes migrations cut rollback incidents ~40%. AI-assisted engineering (Copilot), RAG-style internal tooling, Azure (App Services, Storage), and mentorship across architecture and backend practice.",
   },
   {
-    date: "Aug 2024 — Sep 2024",
-    title: "Full Stack Developer Intern",
-    org: "NEXOCIDE",
-    desc: "Next.js, Tailwind, Firebase features; APIs and performance improvements.",
+    date: "Oct 2020 — Nov 2023 · Remote",
+    title: "Senior Backend Engineer (Freelance)",
+    org: "Kobkiat-IT",
+    desc: "Scalable systems for logistics, e-commerce, booking, and CRM using Java, Spring Boot, .NET Core, Node.js, MongoDB, and PostgreSQL—platforms handling 1.5M+ monthly transactions. ERP, payment, and shipping integrations; indexing, query tuning, and caching improved database performance ~52%. Terraform and GitHub Actions CI/CD cut manual deployment effort ~40%; partnered with international stakeholders on production architectures.",
   },
   {
-    date: "Jun 2024 — Aug 2024",
-    title: "Software Developer Intern",
-    org: "SKYNET E-SOLUTION PVT LTD",
-    desc: "PHP/JS frontends, CI/CD contributions, faster page loads.",
+    date: "Jun 2019 — Sep 2020 · Manila, Philippines",
+    title: "Backend Developer",
+    org: "Emerio",
+    desc: "Java, Spring Boot, C#, and SQL Server services for business automation; integrations reduced manual processing ~60%. API refactoring, async work, and query optimization lowered average processing time ~42%. Built sync and migration pipelines for large datasets; helped modernize CI/CD with QA and infrastructure for reliability and observability.",
+  },
+  {
+    date: "Nov 2018 — Jun 2019 · Manila, Philippines",
+    title: "Backend Developer",
+    org: "Yeaps",
+    desc: "Node.js, Express, MySQL, and MongoDB APIs with auth, sessions, and secure client communication. Reusable service layers accelerated delivery; optimizations improved response times ~30%. Integrated payments and third-party APIs; supported production deployments and Agile delivery.",
   },
 ];
 
 const education = [
   {
-    date: "Sep 2021 — May 2025",
-    title: "B.Tech Computer Science & Engineering",
-    org: "Uttaranchal University · Dehradun",
-    desc: "CGPA 9.36 · Focus on software engineering and full-stack systems.",
+    date: "Jun 2011 — Apr 2016",
+    title: "Bachelor’s Degree in Information Technology",
+    org: "Cavite State University · Cavite, Philippines",
+    desc: "Undergraduate IT program covering software fundamentals, systems, and applied computing.",
+  },
+  {
+    date: "Sep 2024 — Apr 2026",
+    title: "Software Development",
+    org: "Bow Valley College · Alberta, Canada",
+    desc: "Diploma-style software development training aligned with industry tools and delivery practices.",
   },
 ];
 
@@ -99,6 +122,9 @@ type CredentialCardProps = {
   date?: string;
   headline: string;
   body: string;
+  holderName: string;
+  /** Official certificate / completion page (opens in new tab) */
+  certificateUrl: string;
 };
 
 function CredentialCertificateCard({
@@ -110,6 +136,8 @@ function CredentialCertificateCard({
   date,
   headline,
   body,
+  holderName,
+  certificateUrl,
 }: CredentialCardProps) {
   return (
     <div className="overflow-hidden rounded-[20px] border border-gray-200/90 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.28)]">
@@ -132,7 +160,27 @@ function CredentialCertificateCard({
               </li>
             ))}
           </ul>
-          <div className="mt-6 md:mt-auto">
+          <a
+            href={certificateUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={certificateLiveViewClass}
+            aria-label="Open official certificate in a new tab"
+          >
+            <span
+              className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-b from-white/50 via-sky-50/20 to-transparent opacity-70 transition duration-300 group-hover:opacity-100"
+              aria-hidden
+            />
+            <span className="relative flex items-center gap-2">
+              Live view
+              <ArrowTopRightOnSquareIcon
+                className="h-4 w-4 text-sky-500/75 transition duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-sky-600"
+                strokeWidth={1.75}
+                aria-hidden
+              />
+            </span>
+          </a>
+          <div className="mt-5 md:mt-auto">
             <span className="inline-block rounded-full bg-[#b6dfff] px-4 py-2 text-[11px] font-bold text-gray-900 shadow-sm">
               {badgeText}
             </span>
@@ -160,7 +208,7 @@ function CredentialCertificateCard({
           </div>
 
           <p className="relative mt-6 text-[13px] leading-relaxed text-gray-600">
-            <span className="font-semibold text-gray-900">Praduman Sharma</span> has
+            <span className="font-semibold text-gray-900">{holderName}</span> has
             successfully completed the professional program(s) listed in this
             credential.
           </p>
@@ -183,30 +231,30 @@ function CredentialCertificateCard({
   );
 }
 
-const credentials: CredentialCardProps[] = [
+const credentials: Omit<CredentialCardProps, "holderName">[] = [
   {
-    issuerShort: "Internshala · Brillica",
-    sidebarBanner: "2 Programs",
-    sidebarItems: [
-      "Full Stack Web Development — 8 Weeks — Internshala",
-      "Web Development — 8 Weeks — Brillica Services",
-    ],
-    badgeText: "Certified Full-Stack Web Developer",
-    issuerLine: "Internshala Training · Brillica Services",
-    headline: "Professional Web & Full-Stack Development",
-    body: "Hands-on training across modern front-end and back-end stacks, project-based delivery, and production-oriented practices aligned with industry workflows.",
+    issuerShort: "LinkedIn Learning",
+    sidebarBanner: "Certificate of completion",
+    sidebarItems: ["Java: Data Structures — Issued Jan 2026"],
+    badgeText: "Java · Data structures",
+    issuerLine: "LinkedIn Learning",
+    date: "Jan 2026",
+    headline: "Java: Data Structures",
+    body: "LinkedIn Learning course on core Java data structures: arrays, the Collections API, lists and sets, stacks and queues, and ordered tree-based collections—building practical fluency with standard library types for real-world code.",
+    certificateUrl:
+      "https://www.linkedin.com/learning/certificates/8b92be211afbded85afff6092e06754882a7227fbd7187ee99ae2a2811a34555?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BQyXI%2BX06SbGX%2FCER%2FlLP5A%3D%3D",
   },
   {
-    issuerShort: "Great Learning · IIRS",
-    sidebarBanner: "2 Courses",
-    sidebarItems: [
-      "Introduction to JavaScript — 3 Hours — Great Learning",
-      "Automated Feature Extraction from High-Resolution Images — 7.5 Hours — IIRS",
-    ],
-    badgeText: "Specialized Skills Credential",
-    issuerLine: "Great Learning · Indian Institute of Remote Sensing",
-    headline: "JavaScript foundations & geospatial ML fundamentals",
-    body: "Focused modules on core JavaScript concepts and introductory methods for feature extraction from imagery—complementing broader software engineering practice.",
+    issuerShort: "MongoDB University",
+    sidebarBanner: "Developer course",
+    sidebarItems: ["M220N — MongoDB for .NET Developers — Issued May 2021"],
+    badgeText: "MongoDB · .NET",
+    issuerLine: "MongoDB, Inc. · MongoDB University",
+    date: "May 2021",
+    headline: "M220N: MongoDB for .NET Developers",
+    body: "MongoDB University course focused on ASP.NET-style application development with MongoDB: the official C#/.NET driver, document modeling and serialization, CRUD operations, flexible querying (including LINQ-oriented workflows), and aggregation patterns suited to production services.",
+    certificateUrl:
+      "https://university.mongodb.com/course_completion/de1fc953-514a-4bd1-8549-7c37759cb278?utm_source=copy&utm_medium=social&utm_campaign=university_social_sharing",
   },
 ];
 
@@ -287,7 +335,7 @@ export function AboutMeContent() {
             <p className={sectionLabel}>Education</p>
             <ul className="mt-8 space-y-8">
               {education.map((item) => (
-                <li key={item.date}>
+                <li key={item.date + item.title}>
                   <p className="text-[13px] text-gray-500">{item.date}</p>
                   <p className="mt-1 text-[17px] font-semibold text-white md:text-lg">
                     {item.title}
@@ -296,6 +344,15 @@ export function AboutMeContent() {
                   <p className="mt-2 text-[14px] leading-relaxed text-gray-400 md:text-[15px]">
                     {item.desc}
                   </p>
+                </li>
+              ))}
+            </ul>
+
+            <p className={`${sectionLabel} mt-10`}>Certifications</p>
+            <ul className="mt-4 space-y-3 border-l-2 border-purple-400/40 pl-4 text-[14px] leading-relaxed text-gray-300 md:text-[15px]">
+              {CERTIFICATION_SUMMARY_ITEMS.map((line) => (
+                <li key={line} className="text-gray-300">
+                  {line}
                 </li>
               ))}
             </ul>
@@ -335,7 +392,11 @@ export function AboutMeContent() {
           </p>
           <div className="mt-8 flex flex-col gap-8 lg:gap-10">
             {credentials.map((c) => (
-              <CredentialCertificateCard key={c.headline} {...c} />
+              <CredentialCertificateCard
+                key={c.headline}
+                {...c}
+                holderName={credentialHolderName}
+              />
             ))}
           </div>
         </div>

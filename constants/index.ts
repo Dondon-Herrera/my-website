@@ -9,56 +9,68 @@ import {
 
 export const SKILL_DATA = [
   {
-    skill_name: "HTML",
-    image: "html.png",
+    skill_name: "C#",
+    image: "c#.png",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "CSS",
-    image: "css.png",
+    skill_name: ".NET",
+    image: "net.png",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "JavaScript",
-    image: "js.png",
-    width: 65,
-    height: 65,
-  },
-  {
-    skill_name: "Tailwind CSS",
-    image: "tailwind.png",
+    skill_name: "Java",
+    image: "java.png",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "React",
-    image: "react.png",
+    skill_name: "Spring Boot",
+    image: "spring-boot.png",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "Redux",
-    image: "redux.png",
+    skill_name: "Microsoft Azure",
+    image: "icons8-azure-96.png",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "React Query",
-    image: "reactquery.png",
+    skill_name: "AWS",
+    image: "icons8-aws-96.png",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "TypeScript",
-    image: "ts.png",
+    skill_name: "Kubernetes",
+    image: "icons8-kubernetes-96.png",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "Next.js 14",
-    image: "next.png",
+    skill_name: "Terraform",
+    image: "icons8-terraform-96.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "Apache Kafka",
+    image: "icons8-apache-kafka-96.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "Redis",
+    image: "icons8-redis-80.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "Angular",
+    image: "icons8-angularjs-96.png",
     width: 80,
     height: 80,
   },
@@ -73,18 +85,6 @@ export const SKILL_DATA = [
     image: "stripe.png",
     width: 80,
     height: 80,
-  },
-  {
-    skill_name: "Node.js",
-    image: "node.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "MongoDB",
-    image: "mongodb.png",
-    width: 40,
-    height: 40,
   },
 ] as const;
 
@@ -251,6 +251,12 @@ export const OTHER_SKILL = [
     height: 60,
   },
 ] as const;
+
+/** One-line summaries: home `#education` certifications + `/about-me` list */
+export const CERTIFICATION_SUMMARY_ITEMS: readonly string[] = [
+  "Java: Data Structures • Collections, stacks, queues and tree sets • Issued Jan 2026 • LinkedIn Learning",
+  "M220N: MongoDB for .NET Developers • C#/.NET driver, CRUD, querying and aggregation with ASP.NET • Issued May 2021 • MongoDB University",
+];
 
 export const PROJECTS = [
  {

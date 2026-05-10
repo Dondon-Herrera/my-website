@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const siteConfig: Metadata = {
-  title: "Praduman Sharma | Software Engineer",
+  title: "Dondon Herrera | Software Engineer",
   description: "Welcome to my portfolio.",
   icons: {
     icon: [{ url: "/me_icon.ico", type: "image/x-icon" }],
@@ -40,7 +40,7 @@ export const siteConfig: Metadata = {
     "css",
   ] as Array<string>,
   authors: {
-    name: "Praduman Sharma",
-    url: "https://github.com/praduman1212",
+    name: "Dondon Herrera",
+    url: "https://github.com/Dondon-Herrera",
   },
 } as const;

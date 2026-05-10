@@ -40,7 +40,7 @@ export const SkillDataProvider = ({
       transition={{ delay: index * animationDelay }}
     >
       <Image
-        src={`/skills/${src}`}
+        src={`/skills/${encodeURIComponent(src)}`}
         width={width}
         height={height}
         alt={name}

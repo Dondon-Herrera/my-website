@@ -109,6 +109,12 @@
 // };
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
+import { CERTIFICATION_SUMMARY_ITEMS } from "@/constants";
+
+const logoFrame =
+  "relative flex h-[5.5rem] w-[5.5rem] shrink-0 items-center justify-center rounded-2xl border border-cyan-400/20 bg-[#0d1018]/80 p-2 shadow-[0_12px_40px_rgba(0,0,0,0.35)] sm:h-[6.5rem] sm:w-[6.5rem] md:h-[7.25rem] md:w-[7.25rem]";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -168,26 +174,73 @@ export const Education = () => {
           <DiamondBullet color="from-cyan-400 to-blue-400" />
              Education
         </h3>
-        <motion.div
-          className="pl-4 border-l-2 border-cyan-400/40 space-y-2"
-          variants={containerVariants}
-        >
-          <motion.p variants={itemVariants} className="text-xl text-white font-semibold">
-            Uttaranchal University
-          </motion.p>
-          <motion.p variants={itemVariants} className="text-sm text-gray-400">
-            Dehradun, Uttarakhand
-          </motion.p>
-          <motion.p variants={itemVariants} className="text-sm text-gray-400">
-            Sep 2021 – May 2025
-          </motion.p>
-          <motion.p variants={itemVariants} className="mt-2 text-gray-200 text-base">
-            B.Tech in Computer Science and Engineering
-          </motion.p>
-          <motion.p variants={itemVariants} className="text-gray-300 text-sm">
-            CGPA: 9.36
-          </motion.p>
-        </motion.div>
+        <div className="space-y-10">
+          <motion.div
+            className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between sm:gap-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.25 }}
+          >
+            <motion.div
+              variants={itemVariants}
+              className="min-w-0 flex-1 space-y-2 border-l-2 border-cyan-400/40 pl-4"
+            >
+              <p className="text-xl font-semibold text-white">
+                Cavite State University
+              </p>
+              <p className="text-sm text-gray-400">Cavite, Philippines</p>
+              <p className="text-sm text-gray-400">Jun 2011 – Apr 2016</p>
+              <p className="mt-2 text-base text-gray-200">
+                Bachelor’s Degree in Information Technology
+              </p>
+            </motion.div>
+            <motion.div
+              variants={itemVariants}
+              className={`${logoFrame} self-start sm:self-auto sm:ml-4`}
+            >
+              <Image
+                src="/university/cavite.png"
+                alt="Cavite State University logo"
+                width={120}
+                height={120}
+                className="h-full w-full object-contain"
+              />
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between sm:gap-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.25 }}
+          >
+            <motion.div
+              variants={itemVariants}
+              className="min-w-0 flex-1 space-y-2 border-l-2 border-cyan-400/40 pl-4"
+            >
+              <p className="text-xl font-semibold text-white">
+                Bow Valley College
+              </p>
+              <p className="text-sm text-gray-400">Alberta, Canada</p>
+              <p className="text-sm text-gray-400">Sep 2024 – Apr 2026</p>
+              <p className="mt-2 text-base text-gray-200">Software Development</p>
+            </motion.div>
+            <motion.div
+              variants={itemVariants}
+              className={`${logoFrame} self-start sm:self-auto sm:ml-4`}
+            >
+              <Image
+                src="/university/Bow_Valley_College.png"
+                alt="Bow Valley College logo"
+                width={120}
+                height={120}
+                className="h-full w-full object-contain"
+              />
+            </motion.div>
+          </motion.div>
+        </div>
       </motion.div>
 
       {/* Certifications Section */}
@@ -206,18 +259,15 @@ export const Education = () => {
           className="pl-4 border-l-2 border-purple-400/40 space-y-3 text-gray-300 text-sm md:text-base"
           variants={containerVariants}
         >
-          <motion.li variants={itemVariants} className="hover:text-white transition">
-            Full Stack Web Development • 8 Weeks • Internshala
-          </motion.li>
-          <motion.li variants={itemVariants} className="hover:text-white transition">
-            Web Development • 8 Weeks • Brillica Services
-          </motion.li>
-          <motion.li variants={itemVariants} className="hover:text-white transition">
-            Introduction to JavaScript • 3 Hours • Great Learning
-          </motion.li>
-          <motion.li variants={itemVariants} className="hover:text-white transition">
-            Automated Feature Extraction from High-Resolution Images • 7.5 Hours • IIRS
-          </motion.li>
+          {CERTIFICATION_SUMMARY_ITEMS.map((line) => (
+            <motion.li
+              key={line}
+              variants={itemVariants}
+              className="hover:text-white transition"
+            >
+              {line}
+            </motion.li>
+          ))}
         </motion.ul>
       </motion.div>
 

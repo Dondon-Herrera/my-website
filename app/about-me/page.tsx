@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { AboutMeContent } from "@/components/main/about-me-content";
 
 export const metadata: Metadata = {
-  title: "About me | Praduman Sharma",
+  title: "About me | Dondon Herrera",
   description:
     "Product-focused software engineer — experience, education, and engineering expertise.",
 };

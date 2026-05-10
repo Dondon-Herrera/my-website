@@ -6,6 +6,7 @@ import {
   ChevronLeftIcon,
   CpuChipIcon,
   HomeIcon,
+  PhoneIcon,
   PencilSquareIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
@@ -15,7 +16,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { RxGithubLogo, RxLinkedinLogo } from "react-icons/rx";
-import { SiUpwork } from "react-icons/si";
+import { SiTelegram } from "react-icons/si";
 
 import { LINKS } from "@/constants";
 import { cn } from "@/lib/utils";
@@ -147,6 +148,38 @@ export function HeroFixedChrome() {
   const [isHomeHeroPortraitInView, setIsHomeHeroPortraitInView] =
     useState(true);
   const [isSocialPinnedOpen, setIsSocialPinnedOpen] = useState(false);
+  const [isFooterInView, setIsFooterInView] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    let io: IntersectionObserver | null = null;
+    let rafId = 0;
+    let attempts = 0;
+
+    const attach = () => {
+      if (cancelled) return;
+      const el = document.getElementById("site-footer");
+      if (!el) {
+        if (attempts++ < 120) rafId = requestAnimationFrame(attach);
+        return;
+      }
+      io = new IntersectionObserver(
+        (entries) => {
+          const visible = entries.some((e) => e.isIntersecting);
+          setIsFooterInView(visible);
+        },
+        { root: null, threshold: 0.08, rootMargin: "0px 0px 0px 0px" }
+      );
+      io.observe(el);
+    };
+
+    rafId = requestAnimationFrame(attach);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(rafId);
+      io?.disconnect();
+    };
+  }, [pathname]);
 
   useEffect(() => {
     const pickActive = () => {
@@ -324,7 +357,8 @@ export function HeroFixedChrome() {
   const showSocialToggle = !showSocial;
 
   const showBottomDock =
-    pathname !== "/" || !isHomeHeroPortraitInView;
+    !isFooterInView &&
+    (pathname !== "/" || !isHomeHeroPortraitInView);
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[55]">
@@ -400,7 +434,7 @@ export function HeroFixedChrome() {
           <RxGithubLogo className="h-[22px] w-[22px] sm:h-7 sm:w-7 md:h-[30px] md:w-[30px]" />
         </Link>
         <Link
-          href="mailto:sharmapraduman6@gmail.com"
+          href="mailto:herreradondon107@gmail.com"
           className={socialTileClass}
           style={{ backgroundColor: SOCIAL_TILE, color: SOCIAL_ICON }}
           aria-label="Email"
@@ -418,14 +452,22 @@ export function HeroFixedChrome() {
           <RxLinkedinLogo className="h-[22px] w-[22px] sm:h-7 sm:w-7 md:h-[30px] md:w-[30px]" />
         </Link>
         <Link
-          href={LINKS.upwork}
+          href={LINKS.telegram}
           target="_blank"
           rel="noreferrer noopener"
           className={socialTileClass}
           style={{ backgroundColor: SOCIAL_TILE, color: SOCIAL_ICON }}
-          aria-label="Upwork"
+          aria-label="Telegram"
         >
-          <SiUpwork className="h-[22px] w-[22px] sm:h-7 sm:w-7 md:h-[30px] md:w-[30px]" />
+          <SiTelegram className="h-[22px] w-[22px] sm:h-7 sm:w-7 md:h-[30px] md:w-[30px]" />
+        </Link>
+        <Link
+          href={LINKS.phoneTel}
+          className={socialTileClass}
+          style={{ backgroundColor: SOCIAL_TILE, color: SOCIAL_ICON }}
+          aria-label="Phone: +1 (254) 268-1568"
+        >
+          <PhoneIcon className="h-[22px] w-[22px] sm:h-7 sm:w-7 md:h-[30px] md:w-[30px]" strokeWidth={1.75} />
         </Link>
         <button
           type="button"

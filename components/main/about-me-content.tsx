@@ -1,8 +1,11 @@
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowTopRightOnSquareIcon,
+  PhoneIcon,
+} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { RxGithubLogo, RxLinkedinLogo } from "react-icons/rx";
-import { SiUpwork } from "react-icons/si";
+import { SiTelegram } from "react-icons/si";
 
 import { PortfolioCtaFooter } from "@/components/main/portfolio-cta-footer";
 import { siteConfig } from "@/config";
@@ -19,8 +22,20 @@ const cardBase =
 const sectionLabel =
   "text-[12px] font-semibold uppercase tracking-[0.14em] text-gray-400 md:text-[13px]";
 
+/** Left profile card — chronological match to Experience section */
+const EMPLOYER_LOGOS = [
+  { src: "/company_logs/offshore_logo.jfif", alt: "Offshore Team" },
+  { src: "/company_logs/kobkiat_it_logo.jfif", alt: "Kobkiat-IT" },
+  { src: "/company_logs/emerio_logo.jfif", alt: "Emerio" },
+  { src: "/company_logs/yeapscorp_logo.jfif", alt: "Yeaps" },
+] as const;
+
 const pill =
   "rounded-[10px] border border-white/[0.12] bg-[#0d0f16] px-3 py-1.5 text-[13px] text-gray-200 md:px-3.5 md:py-2 md:text-[14px]";
+
+/** Compact chips for Engineering expertise grid */
+const expertisePill =
+  "rounded-md border border-white/[0.1] bg-[#111520] px-2 py-0.5 text-[10.5px] font-medium leading-tight text-gray-300 sm:text-[11px] md:text-[12px]";
 
 /** Soft light CTA — certificate sidebar (matches pale blue panel) */
 const certificateLiveViewClass =
@@ -70,46 +85,105 @@ const education = [
 
 const expertiseBlocks: { title: string; tags: string[] }[] = [
   {
-    title: "Web Engineering",
+    title: "Backend & JVM / .NET",
     tags: [
-      "Next.js",
+      "C#",
+      ".NET Core",
+      "ASP.NET",
+      "EF Core",
+      "Java",
+      "Spring Boot",
+      "Node.js",
+      "Express.js",
+      "Ocelot",
+      "IdentityServer",
+      "Hangfire",
+    ],
+  },
+  {
+    title: "Data & persistence",
+    tags: [
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "MySQL",
+      "SQL Server",
+      "Prisma",
+      "Firebase",
+      "Indexing & query tuning",
+    ],
+  },
+  {
+    title: "Messaging & distributed systems",
+    tags: [
+      "Apache Kafka",
+      "Event-driven architecture",
+      "Microservices",
+      "Async pipelines",
+      "API gateways",
+    ],
+  },
+  {
+    title: "Cloud & DevOps",
+    tags: [
+      "Microsoft Azure",
+      "Azure Functions",
+      "AWS",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "CI/CD",
+      "GitHub Actions",
+    ],
+  },
+  {
+    title: "Frontend",
+    tags: [
       "React",
+      "Next.js",
       "TypeScript",
+      "JavaScript",
+      "Angular",
+      "HTML / CSS",
       "Tailwind CSS",
-      "REST APIs",
-      "Serverless",
+      "Material UI",
+      "Redux",
+      "React Query",
+      "Framer Motion",
     ],
   },
   {
-    title: "Backend & Data",
-    tags: ["Node.js", "PostgreSQL", "Firebase", "Auth", "Database design"],
-  },
-  {
-    title: "Performance & Production",
+    title: "APIs & integrations",
     tags: [
-      "Core Web Vitals",
-      "Performance",
-      "SEO",
-      "Edge deployment",
-      "Analytics",
+      "REST",
+      "GraphQL",
+      "Webhooks",
+      "BigCommerce",
+      "B2B integrations",
+      "OAuth 2.0",
+      "MSAL.js",
     ],
   },
   {
-    title: "AI & Modern Systems",
-    tags: ["LLM integrations", "RAG patterns", "Vector DBs", "AI features"],
+    title: "Payments & fintech patterns",
+    tags: [
+      "Stripe",
+      "Payment orchestration",
+      "Wallet / ledger flows",
+      "Secure API layers",
+    ],
   },
   {
-    title: "Software Engineering",
+    title: "AI, quality & delivery",
     tags: [
+      "LLM / RAG patterns",
+      "GitHub Copilot",
+      "Claude Code workflows",
       "Clean architecture",
       "System design",
-      "Scalable apps",
-      "CI/CD",
+      "TDD",
+      "Observability",
     ],
-  },
-  {
-    title: "Collaboration & Tools",
-    tags: ["Git", "Code review", "Technical writing", "Project planning"],
   },
 ];
 
@@ -271,7 +345,7 @@ export function AboutMeContent() {
             <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0d0f16]">
               <Image
                 src="/hero_body_cutout.svg"
-                alt="Praduman Sharma"
+                alt="Dondon Herrera"
                 width={400}
                 height={520}
                 unoptimized
@@ -281,11 +355,36 @@ export function AboutMeContent() {
             </div>
             <p className={`${sectionLabel} mt-8`}>About me</p>
             <h1 className="mt-3 text-[28px] font-bold leading-tight tracking-tight text-white md:text-[32px]">
-              Praduman Sharma
+              Dondon Herrera
             </h1>
             <p className="mt-2 text-[15px] text-gray-400 md:text-base">
               Product-focused software engineer
             </p>
+            <div
+              className="mt-5 flex flex-nowrap items-center justify-between gap-3 border-t border-white/[0.08] pt-5 sm:gap-4 md:gap-6"
+              aria-label="Companies I have worked with"
+            >
+              {EMPLOYER_LOGOS.map(({ src, alt }) => (
+                <div
+                  key={src}
+                  className="flex min-w-0 flex-1 justify-center"
+                >
+                  <div
+                    className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-white/[0.14] bg-[#0a0c12] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] sm:h-12 sm:w-12 md:h-[3.35rem] md:w-[3.35rem]"
+                    title={alt}
+                  >
+                    <Image
+                      src={src}
+                      alt={alt}
+                      fill
+                      unoptimized
+                      sizes="(max-width: 640px) 44px, 54px"
+                      className="object-cover object-center"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className={`${cardBase} md:col-span-2`}>
@@ -293,21 +392,58 @@ export function AboutMeContent() {
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400/90" />
               Self summary
             </p>
-            <h2 className="mt-5 text-[26px] font-bold leading-snug tracking-tight text-white md:text-[34px] md:leading-snug">
-              Building scalable digital products that are fast, intuitive, and
-              built for real-world impact.
+            <h2 className="mt-5 text-[21px] font-bold leading-snug tracking-tight text-white md:text-[28px] md:leading-snug">
+            Building scalable backend platforms, AI-powered systems, and cloud-native applications designed for performance, reliability, and real-world business impact.
             </h2>
             <p className="mt-6 text-[15px] leading-relaxed text-gray-400 md:text-base md:leading-relaxed">
-              Full stack engineer specializing in React, Next.js, and Node.js.
-              I ship responsive, high-performance applications and enjoy turning
-              complex requirements into clear, maintainable systems—from UX polish
-              to APIs, databases, and production delivery.
+            Senior Software Engineer specializing in .NET, C#, Java, Node.js, Azure, and distributed systems. I design and deliver enterprise-grade APIs, microservices, AI-assisted workflows, and cloud platforms that prioritize scalability, maintainability, and operational excellence—from backend architecture and integrations to CI/CD automation and production infrastructure.
             </p>
-            <p className="mt-6 flex items-start gap-2 text-[14px] leading-relaxed text-gray-400 md:text-[15px]">
-              <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gray-500" />
-              Focused on modern web systems, integrations, and scalable product
-              development.
-            </p>
+            <ul className="mt-3 space-y-0 text-[14px] leading-tight text-gray-400 md:text-[15px] md:leading-tight">
+            <li className="flex gap-2 py-0.5">
+                <span className="mt-0.5 shrink-0 text-cyan-400/80" aria-hidden>
+                  •
+                </span>
+                <span>
+                Focused on cloud-native architecture, distributed systems, and high-performance backend engineering
+                </span>
+              </li>
+              <li className="flex gap-2 py-0.5">
+                <span className="mt-0.5 shrink-0 text-cyan-400/80" aria-hidden>
+                  •
+                </span>
+                <span>
+                  Experienced with AI-assisted development workflows including
+                  GitHub Copilot, Claude Code, and RAG-based systems.
+                </span>
+              </li>
+              <li className="flex gap-2 py-0.5">
+                <span className="mt-0.5 shrink-0 text-cyan-400/80" aria-hidden>
+                  •
+                </span>
+                <span>
+                  Passionate about scalable APIs, infrastructure automation,
+                  observability, and enterprise integrations.
+                </span>
+              </li>
+              <li className="flex gap-2 py-0.5">
+                <span className="mt-0.5 shrink-0 text-cyan-400/80" aria-hidden>
+                  •
+                </span>
+                <span>
+                  Strong background building fintech, SaaS, logistics,
+                  e-commerce, and operational business platforms.
+                </span>
+              </li>
+              <li className="flex gap-2 py-0.5">
+                <span className="mt-0.5 shrink-0 text-cyan-400/80" aria-hidden>
+                  •
+                </span>
+                <span>
+                  Committed to clean architecture, engineering rigor, and
+                  delivering production-ready software at scale.
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -362,18 +498,18 @@ export function AboutMeContent() {
         {/* Engineering expertise */}
         <div className={`${cardBase} mt-6`}>
           <p className={sectionLabel}>Engineering expertise</p>
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-5 grid grid-cols-2 gap-3 sm:gap-3.5 md:mt-6 md:grid-cols-3 lg:grid-cols-4">
             {expertiseBlocks.map((block) => (
               <div
                 key={block.title}
-                className="rounded-[20px] border border-white/[0.08] bg-[#0d0f16] p-6 md:p-8"
+                className="rounded-xl border border-white/[0.08] bg-[#0d0f16] p-3 sm:p-3.5 md:p-4"
               >
-                <h3 className="text-[17px] font-semibold text-white md:text-lg">
+                <h3 className="text-[12px] font-semibold leading-snug text-white sm:text-[13px] md:text-[13.5px]">
                   {block.title}
                 </h3>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-1 sm:mt-[1.125rem] sm:gap-1.5 md:mt-5">
                   {block.tags.map((tag) => (
-                    <span key={tag} className={pill}>
+                    <span key={tag} className={expertisePill}>
                       {tag}
                     </span>
                   ))}
@@ -425,13 +561,20 @@ export function AboutMeContent() {
                 <RxLinkedinLogo className="h-6 w-6" />
               </Link>
               <Link
-                href={LINKS.upwork}
+                href={LINKS.telegram}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-white/[0.14] bg-[#0d0f16] text-gray-200 transition hover:border-cyan-400/40 hover:text-white"
-                aria-label="Upwork"
+                aria-label="Telegram"
               >
-                <SiUpwork className="h-6 w-6" />
+                <SiTelegram className="h-6 w-6" />
+              </Link>
+              <Link
+                href={LINKS.phoneTel}
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-white/[0.14] bg-[#0d0f16] text-gray-200 transition hover:border-cyan-400/40 hover:text-white"
+                aria-label="Phone: +1 (254) 268-1568"
+              >
+                <PhoneIcon className="h-6 w-6" strokeWidth={1.75} />
               </Link>
             </div>
             <p className="mt-6 text-[14px] leading-relaxed text-gray-400 md:text-[15px]">

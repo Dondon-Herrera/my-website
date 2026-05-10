@@ -1,4 +1,5 @@
 import { FaYoutube, FaFacebook } from "react-icons/fa";
+import { MdOutlinePhone } from "react-icons/md";
 import {
   RxDiscordLogo,
   RxGithubLogo,
@@ -6,6 +7,7 @@ import {
   RxTwitterLogo,
   RxLinkedinLogo,
 } from "react-icons/rx";
+import { SiTelegram } from "react-icons/si";
 
 export const SKILL_DATA = [
   {
@@ -92,12 +94,12 @@ export const SOCIALS = [
   {
     name: "LinkedIn",
     icon: RxLinkedinLogo,
-    link: "https://www.linkedin.com/in/praduman12/",
+    link: "https://www.linkedin.com/in/dondon-herrera/",
   },
   {
     name: "GitHub",
     icon: RxGithubLogo,
-    link: "https://github.com/praduman1212",
+    link: "https://github.com/Dondon-Herrera/",
   },
 ] as const;
 
@@ -456,12 +458,22 @@ export const PORTFOLIO_PAGE_METRIC_BADGES: { label: string; rotate: string }[] =
     { label: "99.9% Uptime", rotate: "4deg" },
   ];
 
+export const LINKS = {
+  linkedin: "https://www.linkedin.com/in/dondon-herrera/",
+  github: "https://github.com/Dondon-Herrera/",
+  whatsapp: "https://wa.me/919520949165",
+  /** Your public Telegram username (https://t.me/username) */
+  telegram: "https://t.me/dondonH0808",
+  /** E.164 for tel: — same as WhatsApp contact where applicable */
+  phoneTel: "tel:+12542681568",
+} as const;
+
 export const FOOTER_DATA = [
   {
     title: "About Me",
     data: [
       {
-        name: "I’m Praduman Sharma, a passionate Software Engineer from Dehradun. I’m open to relocation and remote opportunities, and I’m driven by a love for building impactful digital solutions with creativity and precision.",
+        name: "I’m Dondon Herrera, a passionate Software Engineer based in Canada. I’m open to both relocation and remote opportunities, and I’m driven by a strong passion for building impactful digital solutions that combine innovation, scalability, and precision. I thrive on transforming complex ideas into high-quality products that deliver meaningful value and exceptional user experiences.",
         icon: null,
         link: null,
       },
@@ -473,12 +485,22 @@ export const FOOTER_DATA = [
       {
         name: "LinkedIn",
         icon: RxLinkedinLogo,
-        link: "https://www.linkedin.com/in/praduman12/",
+        link: LINKS.linkedin,
       },
       {
         name: "GitHub",
         icon: RxGithubLogo,
-        link: "https://github.com/praduman1212",
+        link: LINKS.github,
+      },
+      {
+        name: "Telegram",
+        icon: SiTelegram,
+        link: LINKS.telegram,
+      },
+      {
+        name: "+1 (254) 268-1568",
+        icon: MdOutlinePhone,
+        link: LINKS.phoneTel,
       },
     ],
   },
@@ -488,7 +510,7 @@ export const FOOTER_DATA = [
       {
         name: "Hire Me",
         icon: null,
-        link: "https://wa.me/919520949165",
+        link: "https://t.me/dondonH0808",
       },
       {
         name: "Learn about me",
@@ -498,11 +520,11 @@ export const FOOTER_DATA = [
       {
         name: "Contact Me",
         icon: null,
-        link: "mailto:sharmapraduman6@gmail.com",
+        link: "mailto:herreradondon107@gmail.com",
       },
     ],
   },
-] as const;
+];
 
 export const NAV_LINKS = [
   { title: "Welcome", link: "#welcome" },
@@ -513,11 +535,3 @@ export const NAV_LINKS = [
   { title: "Projects", link: "/projects" },
   { title: "Available", link: "#available" },
 ] as const;
-
-export const LINKS = {
-  linkedin: "https://www.linkedin.com/in/praduman12/",
-  github: "https://github.com/praduman1212",
-  whatsapp: "https://wa.me/919520949165",
-  /** Replace with your Upwork freelancer profile URL when ready */
-  upwork: "https://www.upwork.com/",
-};

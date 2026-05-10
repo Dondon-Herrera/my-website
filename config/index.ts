@@ -8,7 +8,7 @@ export const siteConfig: Metadata = {
     shortcut: "/me_icon.ico",
   },
   keywords: [
-    "praduman-sharma",
+    "dondon-herrera",
     "reactjs",
     "nextjs",
     "vercel",

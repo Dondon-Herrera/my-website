@@ -45,7 +45,7 @@ export const Encryption = () => {
               >
                 <Image
                   src="/formal2.jpg"
-                  alt="Praduman portrait"
+                  alt="Dondon Herrera"
                   width={220}
                   height={220}
                   className="h-auto w-[140px] rounded-2xl object-cover shadow-[0_0_40px_rgba(112,66,248,0.5)] sm:w-[220px]"

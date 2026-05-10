@@ -19,11 +19,14 @@ const tagClass =
   "rounded-full border border-white/20 bg-[#0d0f16] px-3 py-1.5 text-[12px] text-gray-200 md:text-[13px]";
 
 const collaborationTags = [
-  "Product Strategy",
-  "MVP Delivery",
-  "AI Integrations",
-  "Code Reviews",
-  "Technical Consulting",
+  "SaaS & Product Platforms",
+  "E-Commerce & B2B Systems",
+  "AI, LLM & ML Engineering",
+  "Payments & Fintech Solutions",
+  "Microservices & Kafka",
+  "Enterprise .NET · Java · Node",
+  "Azure & Cloud-Native Delivery",
+  "High-Scale APIs & Integrations",
 ];
 
 export function ContactPageContent() {

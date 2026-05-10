@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ContactPageContent } from "@/components/main/contact-page-content";
 
 export const metadata: Metadata = {
-  title: "Contact | Praduman Sharma",
+  title: "Contact | Dondon Herrera",
   description:
     "Start a project — share your vision, timeline, and goals. I’ll reply with clear next steps.",
 };
